@@ -1,0 +1,34 @@
+[
+    {
+        "id": 0,
+        "slug": "gun",
+        "stackable": false,
+        "title": "Colt",
+        "description": "Does the job. Better find something better quick though!",
+        "damage": 35.0
+    },
+    {
+        "id": 1,
+        "slug": "throwing_knife",
+        "stackable": true,
+        "title": "Throwing Knife",
+        "description": "Careful with these, they're damn sharp!",
+        "damage": 50.0
+    },
+    {
+        "id": 2,
+        "slug": "shotgun",
+        "stackable": false,
+        "title": "Shotgun",
+        "description": "Grandma's personal favorite! Too bad she's dead now.",
+        "damage": 12.5
+    },
+    {
+        "id": 3,
+        "slug": "rifle",
+        "stackable": false,
+        "title": "Winchester",
+        "description": "Deadly as can be, but also very rare so cherish it!",
+        "damage": 150.0
+    }
+]
