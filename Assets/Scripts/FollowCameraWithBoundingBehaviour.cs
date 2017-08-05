@@ -26,7 +26,7 @@ public class FollowCameraWithBoundingBehaviour : MonoBehaviour {
 	public AnimationCurve cameraShakeCurve;
 
 	private float cameraShakeCurveEndTime;
-	private float cameraShakeCurrentTime = 1000; //super dirty quick fix
+	public float cameraShakeCurrentTime = 1000; //super dirty quick fix
 
 	//camera zoom
 	public AnimationCurve zoomingCurve;
@@ -45,7 +45,7 @@ public class FollowCameraWithBoundingBehaviour : MonoBehaviour {
 	#endregion
 
 
-	// Making sure we have the player game object referenced
+	//Making sure we have the player game object referenced
 	void Awake()
 	{
 		camera = GetComponent<Camera>();
@@ -202,12 +202,6 @@ public class FollowCameraWithBoundingBehaviour : MonoBehaviour {
 		//camera shake using Perlin Noise	
 		if (cameraShakeOn)
 		{
-
-			//debug code
-			if (Input.GetKeyDown(KeyCode.Mouse0))
-			{
-				cameraShakeCurrentTime = 0;
-			}
 
 			if (cameraShakeCurrentTime < cameraShakeCurveEndTime)
 			{

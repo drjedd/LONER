@@ -6,6 +6,7 @@ public class WorldItemBehaviour : MonoBehaviour {
     //IMPLEMENT: glowing items for rarity, or to help with locating quest items?
     public bool glowing;
     public int itemID;
+	[Range (1, 100)]public int itemQuantity = 1;
 
     private Collider2D attachedCollider;
     private Rigidbody2D attachedRigidbody;
@@ -52,7 +53,10 @@ public class WorldItemBehaviour : MonoBehaviour {
 
         if (collision.collider.gameObject.tag == "Player")
         {
-            inventoryManager.AddItem(itemID); //pick up item, shitty prototype code
+			for (int i = 0; i < itemQuantity; i++)
+			{
+				inventoryManager.AddItem(itemID); //pick up item, shitty prototype code
+			}
             DestroyObject(gameObject);
             Debug.Log(gameObject.name + " was picked up by " + collision.collider.gameObject.name);
         }

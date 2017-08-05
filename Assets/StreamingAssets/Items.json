@@ -30,5 +30,14 @@
         "title": "Winchester",
         "description": "Deadly as can be, but also very rare so cherish it!",
         "damage": 150.0
+    },
+    {
+        "id": 4,
+        "slug": "ammo",
+        "stackable": true,
+        "title": "Ammunition",
+        "description": "Too rare to be wasted! Be careful!",
+        "damage": 0.0
+
     }
 ]

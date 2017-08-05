@@ -57,7 +57,7 @@ public class InventoryManager : MonoBehaviour {
         Item itemToAdd = database.FetchItemByID(id);
 
         //stack if item is stackable and already in inventory
-        if (itemToAdd.Stackable && CheckIfItemIsInInventory(itemToAdd))
+        if (itemToAdd.Stackable && CheckIfItemIsInInventory(itemToAdd.ID))
         {
             //OPTIMISE: redundant, the present stack has already been found in the CheckIfItemIsInInventory() function call...
             for (int i = 0; i < items.Count; i++)
@@ -106,11 +106,54 @@ public class InventoryManager : MonoBehaviour {
         }
     }
 
-    bool CheckIfItemIsInInventory(Item item) //this could return the slot number where the item was found, to simplify calculation
+	public void RemoveItem(int id)
+	{
+		Item itemToRemove = database.FetchItemByID(id);
+
+		//stack if item is stackable and already in inventory
+		if (itemToRemove.Stackable && CheckIfItemIsInInventory(itemToRemove.ID))
+		{
+			//OPTIMISE: redundant, the present stack has already been found in the CheckIfItemIsInInventory() function call...
+			for (int i = 0; i < items.Count; i++)
+			{
+				if (items[i].ID == id)
+				{
+					//Item is the only child of each slot, therefore GetChild(0) works
+					ItemData data = slots[i].transform.GetChild(0).GetComponent<ItemData>();
+					data.amount--;
+
+					if (data.amount == 0)
+					{
+						//delete item from slot
+						items.Remove(items[i]);
+						GameObject.Destroy(slots[i].transform.GetChild(0).gameObject);
+
+						//STILL ONE MORE THING TO CLEAN UP, DON'T REMEMBER WHICH
+					}
+					Debug.Log("ONE LESS BULLET MATE");
+
+					data.transform.GetChild(0).GetComponent<Text>().text = data.amount.ToString();
+
+					//get out of "for" loop if a stack has been found: don't add one item to each stack!
+					break;
+				}
+			}
+		}
+		else if (!itemToRemove.Stackable && CheckIfItemIsInInventory(itemToRemove.ID))
+		{
+			//todo
+		}
+		else //new item not present in inventory
+		{
+			Debug.Log("ATTEMPTING TO REMOVE NON EXISTING ITEM IN INVENTORY // OUT OF AMMO");
+		}
+	}
+
+	public bool CheckIfItemIsInInventory(int id) //this could return the slot number where the item was found, to simplify calculation
     {
         for (int i = 0; i < items.Count; i++)
         {
-            if (items[i].ID == item.ID)
+            if (items[i].ID == id)
             {
                 return true;
             }

@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glowing: 0
   itemID: 0
+  itemQuantity: 1
 --- !u!212 &212000011614764614
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -2,6 +2,7 @@
 using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 //design and code from Unity Live Training April 13th, 2015: https://www.youtube.com/watch?v=0AqG1fDhPT8
 
@@ -93,4 +94,30 @@ public class EventManager : MonoBehaviour {
             thisEvent.Invoke();
         }
     }
+
+	private void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.Z))
+		{
+			//List<string> eventNames = instance.eventDictionary.Keys.ToList();
+			//List<UnityEvent> eventsList = instance.eventDictionary.Values.ToList();
+
+			//Debug.Log(eventNames + " - " + eventsList);
+
+			if (instance.eventDictionary.Count != 0)
+			{
+				foreach (string key in instance.eventDictionary.Keys)
+				{
+					UnityEvent uEvent = null;
+					instance.eventDictionary.TryGetValue(key, out uEvent);
+					Debug.Log(key + " - " + uEvent.ToString());
+				}
+			}
+			else
+			{
+				Debug.Log("NOTHING IN EVENT DICTIONARY");
+			}
+
+		}
+	}
 }
