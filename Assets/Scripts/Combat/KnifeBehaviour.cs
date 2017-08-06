@@ -77,7 +77,7 @@ public class KnifeBehaviour : MonoBehaviour {
         Vector3 scattering = new Vector3(0, 0, Random.Range(-scatteringAngle, scatteringAngle));
         newShot.gameObject.transform.Rotate(throwingSource.transform.eulerAngles + scattering);
 
-        newShot.GetComponent<Rigidbody2D>().AddForce(-newShot.gameObject.transform.up * knifeSpeed);
+        newShot.GetComponent<Rigidbody2D>().AddForce(newShot.gameObject.transform.up * knifeSpeed);
 
 		//todo: remove one knife from inventory
 		inventoryManager.RemoveItem(4);

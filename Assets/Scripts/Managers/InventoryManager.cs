@@ -127,10 +127,7 @@ public class InventoryManager : MonoBehaviour {
 						//delete item from slot
 						items.Remove(items[i]);
 						GameObject.Destroy(slots[i].transform.GetChild(0).gameObject);
-
-						//STILL ONE MORE THING TO CLEAN UP, DON'T REMEMBER WHICH
 					}
-					Debug.Log("ONE LESS BULLET MATE");
 
 					data.transform.GetChild(0).GetComponent<Text>().text = data.amount.ToString();
 

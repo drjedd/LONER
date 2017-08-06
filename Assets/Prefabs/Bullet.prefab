@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 61000012958584684}
   - component: {fileID: 114000012306088588}
   m_Layer: 0
-  m_Name: Throwing Knife
+  m_Name: Bullet
   m_TagString: ShotgunBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,14 +66,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011977662264}
-  m_LocalRotation: {x: -0, y: -0, z: 0.5789472, w: 0.815365}
-  m_LocalPosition: {x: 4.1706, y: 2.9005, z: 0}
-  m_LocalScale: {x: 0.38059118, y: 0.7951901, z: 0.21374464}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.967, y: 2.8983, z: 0}
+  m_LocalScale: {x: 0.5750323, y: 0.6069386, z: 0.47189516}
   m_Children:
   - {fileID: 4000010525090718}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 70.753006}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &50000011477101370
 Rigidbody2D:
   serializedVersion: 4
@@ -93,7 +93,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &61000012958584684
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -106,18 +106,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0062153228, y: -0.013672732}
+  m_Offset: {x: -0.00009553507, y: 0.00016242452}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.19, y: 0.19}
+    oldSize: {x: 0.04, y: 0.07}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.10453091, y: 0.09983976}
+  m_Size: {x: 0.04061181, y: 0.070816696}
   m_EdgeRadius: 0
 --- !u!96 &96000013844576340
 TrailRenderer:
@@ -240,7 +240,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011977662264}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_MotionVectors: 1
@@ -266,7 +266,7 @@ SpriteRenderer:
   m_SortingLayerID: -679217623
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 4b33949ef31025e4aba4c1d4946972eb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9ee72536982927b4486a541cf3023dd8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0

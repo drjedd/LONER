@@ -362,7 +362,7 @@ InputManager:
     descriptiveName: 'PROTO: switch between WASD style and Hotline Miami style controls'
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: f1
+    positiveButton: 
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000

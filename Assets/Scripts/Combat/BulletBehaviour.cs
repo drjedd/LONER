@@ -21,7 +21,9 @@ public class BulletBehaviour : MonoBehaviour {
     {
         if (collision.collider.gameObject.tag != "ShotgunBullet")
         {
-            Destroy(gameObject);
-        }
+			GetComponent<Rigidbody2D>().Sleep();
+			GetComponent<Collider2D>().enabled = false;
+			Destroy(gameObject, 3);
+		}
     }
 }

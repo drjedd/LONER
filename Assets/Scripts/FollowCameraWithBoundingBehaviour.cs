@@ -31,7 +31,7 @@ public class FollowCameraWithBoundingBehaviour : MonoBehaviour {
 	//camera zoom
 	public AnimationCurve zoomingCurve;
 
-	private bool aimingMode = false;
+	public static bool aimingMode = false;
 
 	private float scrollWheelAxis;
 
@@ -74,6 +74,9 @@ public class FollowCameraWithBoundingBehaviour : MonoBehaviour {
 			OnTerrainSizeChange();
 		}
 
+		//restrict cursor to game window (very helpful for dual screens)
+		Cursor.lockState = CursorLockMode.Confined;
+		
 		cameraTargetOrthographicSize = camera.orthographicSize;
 		previousOrthographicSize = camera.orthographicSize;
 		cameraTargetPosition = camera.transform.position;
@@ -85,7 +88,8 @@ public class FollowCameraWithBoundingBehaviour : MonoBehaviour {
 	}
 
 	private void Update()
-	{
+	{	
+
 		//zoom in and out with mouse wheel or keypad plus/minus
 		scrollWheelAxis = Input.GetAxis("Mouse ScrollWheel");
 
