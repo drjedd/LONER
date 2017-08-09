@@ -2,7 +2,7 @@
 using System.Collections;
 
 [RequireComponent(typeof(Camera))]
-public class FollowCameraWithBoundingBehaviour : MonoBehaviour {
+public class MainCameraBehaviour : MonoBehaviour {
 
 	#region Variables
 
@@ -15,7 +15,7 @@ public class FollowCameraWithBoundingBehaviour : MonoBehaviour {
 	//target follow
 	public bool followTarget = true;
 	public GameObject primaryTarget;
-	public GameObject secondaryTarget;
+	public GameObject secondaryTarget;	
 
 	//bound to terrain limits
 	public bool boundToTerrain = true;
@@ -24,8 +24,7 @@ public class FollowCameraWithBoundingBehaviour : MonoBehaviour {
 	//camera shake
 	public bool cameraShakeOn = true;
 	public AnimationCurve cameraShakeCurve;
-
-	private float cameraShakeCurveEndTime;
+	public float cameraShakeCurveEndTime;
 	public float cameraShakeCurrentTime = 1000; //super dirty quick fix
 
 	//camera zoom
@@ -80,11 +79,6 @@ public class FollowCameraWithBoundingBehaviour : MonoBehaviour {
 		cameraTargetOrthographicSize = camera.orthographicSize;
 		previousOrthographicSize = camera.orthographicSize;
 		cameraTargetPosition = camera.transform.position;
-
-		//find the last keyframe of the shake curve
-		//THAT LOGIC GOES INTO WEAPON AWAKE FUNCTION
-		Keyframe lastKeyframe = cameraShakeCurve[cameraShakeCurve.length - 1];
-		cameraShakeCurveEndTime = lastKeyframe.time;
 	}
 
 	private void Update()

@@ -24,7 +24,7 @@ public class ItemData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-		if (eventData.button == PointerEventData.InputButton.Left && FollowCameraWithBoundingBehaviour.aimingMode == false)
+		if (eventData.button == PointerEventData.InputButton.Left && MainCameraBehaviour.aimingMode == false)
 		{
 			if (item != null)
 			{
@@ -42,7 +42,7 @@ public class ItemData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnDrag(PointerEventData eventData)
     {
-		if (eventData.button == PointerEventData.InputButton.Left && FollowCameraWithBoundingBehaviour.aimingMode == false)
+		if (eventData.button == PointerEventData.InputButton.Left && MainCameraBehaviour.aimingMode == false)
 		{
 			if (item != null)
 			{
@@ -53,7 +53,7 @@ public class ItemData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnEndDrag(PointerEventData eventData)
     {
-		if (eventData.button == PointerEventData.InputButton.Left && FollowCameraWithBoundingBehaviour.aimingMode == false)
+		if (eventData.button == PointerEventData.InputButton.Left && MainCameraBehaviour.aimingMode == false)
 		{
 			//in case of unsuccessful drop
 			this.transform.SetParent(inventory.slots[slotID].transform);
