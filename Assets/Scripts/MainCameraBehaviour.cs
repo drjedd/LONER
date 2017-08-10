@@ -14,8 +14,7 @@ public class MainCameraBehaviour : MonoBehaviour {
 
 	//target follow
 	public bool followTarget = true;
-	public GameObject primaryTarget;
-	public GameObject secondaryTarget;	
+	private Player primaryTarget;
 
 	//bound to terrain limits
 	public bool boundToTerrain = true;
@@ -23,6 +22,8 @@ public class MainCameraBehaviour : MonoBehaviour {
 
 	//camera shake
 	public bool cameraShakeOn = true;
+
+	//todo: encapsulate
 	public AnimationCurve cameraShakeCurve;
 	public float cameraShakeCurveEndTime;
 	public float cameraShakeCurrentTime = 1000; //super dirty quick fix
@@ -45,18 +46,17 @@ public class MainCameraBehaviour : MonoBehaviour {
 
 
 	//Making sure we have the player game object referenced
-	void Awake()
+	void Start()
 	{
 		camera = GetComponent<Camera>();
 
 		if (primaryTarget == null)
 		{
 			//assuming we want to follow the player
-			primaryTarget = GameObject.FindGameObjectWithTag("Player");
-
-			if (primaryTarget == null)
-			{
-				Debug.LogError("Couldn't find a player game object to follow. Make sure to link it in the inspector or give it the \"Player\" tag.");
+			if ( Player.Instance != null ) {
+				primaryTarget = Player.Instance;
+			} else {
+				Debug.LogWarning("Couldn't find a player game object to follow.");
 
 				//don't even try to follow the non-existant target
 				followTarget = false;

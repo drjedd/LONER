@@ -4,6 +4,8 @@ using System.Collections;
 
 public class PlayerPhysicsBehaviour : MonoBehaviour {
 
+	//UNLESS WE DO CO-OP, THIS SHOULD BE A UNITY SINGLETON JUST FOR SAFETY
+
     public float walkingSpeed;
     public float runningSpeed;
 

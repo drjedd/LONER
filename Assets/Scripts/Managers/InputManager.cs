@@ -32,7 +32,13 @@ public class InputManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Inventory"))
+
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			Application.Quit();
+		}
+
+		if (Input.GetButtonDown("Inventory"))
         {
             EventManager.TriggerEvent("InventoryToggle");
             Debug.Log("INVENTORY EVENT");
