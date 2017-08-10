@@ -32,9 +32,8 @@ public class GateBehaviour : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D collider)
 	{
-		Debug.Log("TOUCHED");
 		if (collider.gameObject == Player.Instance.gameObject) {
-			Debug.Log("PLAYER INDEED, LET'S GO TO SCENE #" + destinationSceneIndex);
+			Debug.Log("LOADING SCENE #" + destinationSceneIndex);
 			SceneManager.LoadScene(destinationSceneIndex);
 
 			Player.Instance.transform.position = new Vector3(3.5f, 3, 0);
