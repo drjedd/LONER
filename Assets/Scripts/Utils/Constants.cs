@@ -11,7 +11,9 @@ public static class Const {
 	public const float MIN_CAMERA_ZOOM_SIZE = .5f;
 	public const float MAX_CAMERA_ZOOM_SIZE = 2f;
 
-	public const float MAX_SHAKE_INTENSITY = 3f;
+	public const float MAX_SHAKE_INTENSITY = .4f;
 	public const float MAX_SHAKE_DISTANCE = .1f;
+
+	public const float SCENE_SWITCH_PADDING = .5f;
 
 }

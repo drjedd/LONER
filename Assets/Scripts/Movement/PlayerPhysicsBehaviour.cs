@@ -2,6 +2,7 @@
 using UnityEngine.Events;
 using System.Collections;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerPhysicsBehaviour : MonoBehaviour {
 
 	//UNLESS WE DO CO-OP, THIS SHOULD BE A UNITY SINGLETON JUST FOR SAFETY
@@ -19,12 +20,12 @@ public class PlayerPhysicsBehaviour : MonoBehaviour {
 
     void Start ()
     {
-        attachedRigidbody2D = GetComponent<Rigidbody2D>();
+		attachedRigidbody2D = GetComponent<Rigidbody2D>();
 
-        if (attachedRigidbody2D == null)
-        {
-            Debug.LogError(gameObject.name + ": No Rigidbody2D component attached, required for movement to work. (Physics-based)");
-        }
+		if (attachedRigidbody2D == null)
+		{
+			Debug.LogError(gameObject.name + ": No Rigidbody2D component attached, required for movement to work. (Physics-based)");
+		}
 	}
 
     void Update()
@@ -74,7 +75,7 @@ public class PlayerPhysicsBehaviour : MonoBehaviour {
                 verticalForce = gameObject.transform.up * walkingSpeed * -verticalInput;
             }
 
-            GetComponent<Rigidbody2D>().AddForce(verticalForce);
+            attachedRigidbody2D.AddForce(verticalForce);
 
         }
 

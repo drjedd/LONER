@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4000012662056262}
   - component: {fileID: 114000013323493992}
   - component: {fileID: 212000013145072164}
-  - component: {fileID: 50000011477101370}
   - component: {fileID: 61000012958584684}
   - component: {fileID: 114000012306088588}
+  - component: {fileID: 50188661246274620}
   m_Layer: 0
   m_Name: Pellet
   m_TagString: ShotgunBullet
@@ -74,7 +74,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50000011477101370
+--- !u!50 &50188661246274620
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
@@ -87,13 +87,13 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 10000
+  m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 4
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &61000012958584684
 BoxCollider2D:
   m_ObjectHideFlags: 1

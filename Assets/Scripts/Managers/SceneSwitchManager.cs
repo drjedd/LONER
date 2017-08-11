@@ -10,6 +10,9 @@ public class SceneSwitchManager : MonoBehaviour {
 	{
 		get { return instance; }
 	}
+
+	public static GateBehaviour.Edge destinationEdge;
+	public static float playerRelativePosition;
 	
 	void Start () {
 		

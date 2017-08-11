@@ -10,6 +10,7 @@ TagManager:
   - WeaponSlot
   - ProjectileSource
   - Manager
+  - Terrain
   layers:
   - Default
   - TransparentFX

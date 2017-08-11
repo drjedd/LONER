@@ -18,7 +18,7 @@ public class MainCameraBehaviour : MonoBehaviour {
 
 	//bound to terrain limits
 	public bool boundToTerrain = true;
-	public GameObject boundingTerrain;
+	private GameObject boundingTerrain;
 
 	//camera shake
 	public bool cameraShakeOn = true;
@@ -62,6 +62,8 @@ public class MainCameraBehaviour : MonoBehaviour {
 				followTarget = false;
 			}
 		}
+
+		boundingTerrain = GameObject.FindGameObjectWithTag("Terrain");
 
 		if (boundingTerrain == null)
 		{
@@ -215,6 +217,11 @@ public class MainCameraBehaviour : MonoBehaviour {
 		camera.orthographicSize = cameraCalculatedOrthographicSize;
 		transform.position = cameraTargetPosition;
 
+	}
+
+	public void SetPosition(Vector3 position)
+	{
+		transform.position = position;
 	}
 
 }

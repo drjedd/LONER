@@ -22,10 +22,12 @@ public class ToolTipBehaviour : MonoBehaviour {
 
     void Update ()
     {
-        if (toolTip.activeSelf)
-        {
-            toolTip.transform.position = Input.mousePosition;
-        }
+		//shutdown for debug
+
+        //if (toolTip.activeSelf)
+        //{
+        //    toolTip.transform.position = Input.mousePosition;
+        //}
     }
     
     public void Activate (Item item)
