@@ -41,7 +41,7 @@ public class InputManager : MonoBehaviour
 		if (Input.GetButtonDown("Inventory"))
         {
             EventManager.TriggerEvent("InventoryToggle");
-            Debug.Log("INVENTORY EVENT");
+            //Debug.Log("INVENTORY EVENT");
         }
 
         if (Input.GetButtonDown("Pause"))

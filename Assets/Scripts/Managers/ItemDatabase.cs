@@ -33,20 +33,28 @@ public class ItemDatabase : MonoBehaviour {
     {
         for (int i = 0; i < itemData.Count; i++)
         {
-            database.Add(new Item((int)itemData[i]["id"], itemData[i]["slug"].ToString(),
-                (bool)itemData[i]["stackable"], itemData[i]["title"].ToString(), itemData[i]["description"].ToString(), (double)itemData[i]["damage"]));
+            database.Add(new Item((int)itemData[i]["id"], itemData[i]["slug"].ToString(), (int)itemData[i]["type"],
+				(bool)itemData[i]["stackable"], itemData[i]["title"].ToString(), itemData[i]["description"].ToString(), (double)itemData[i]["damage"]));
         }
     }
 }
 
 public class Item
 {
+
     //properties
     public int ID { get; set; }
     public string Slug { get; set; }
     public Sprite Sprite { get; set; }
     public bool Stackable { get; set; }
-    public string Title { get; set; }
+	public bool InUse { get; set; }
+
+	public enum ItemType {
+		FireArm, Projectile, Ammunition, Armor, Consumable, QuestItem
+	}
+	public ItemType Type { get; set; }
+
+	public string Title { get; set; }
     public string Description { get; set; }
     public double Damage { get; set; }
 
@@ -57,13 +65,15 @@ public class Item
     }
 
     //default constructor
-    public Item (int id, string slug, bool stackable, string title, string description, double damage)
+    public Item (int id, string slug, int type, bool stackable, string title, string description, double damage)
     {
         this.ID = id;
         this.Slug = slug;
+		this.Type = (ItemType) type;
         this.Sprite = Resources.Load<Sprite>("sprites/items/" + slug + "/" + slug + "_inventory");
         this.Stackable = stackable;
-        this.Title = title;
+		this.InUse = false;
+		this.Title = title;
         this.Description = description;
         this.Damage = damage; 
     }

@@ -95,7 +95,6 @@ public class GunBehaviour : MonoBehaviour {
 		//TEMPORARY, BUG-PRONE
 		projectileSource = GameObject.FindGameObjectWithTag("ProjectileSource");
 
-		Debug.Log(projectileSource);
 
 		gunAudioSource = GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>();
 	}

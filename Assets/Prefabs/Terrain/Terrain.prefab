@@ -56,7 +56,6 @@ GameObject:
   - component: {fileID: 33885481692514184}
   - component: {fileID: 23099493658476186}
   - component: {fileID: 82943902340348366}
-  - component: {fileID: 114403375714028510}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Terrain
@@ -144,8 +143,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1693937679131154}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.43, y: 2.9, z: 0}
-  m_LocalScale: {x: 7.804706, y: 5.948047, z: 0}
+  m_LocalPosition: {x: 3.594, y: 3.29, z: 0}
+  m_LocalScale: {x: 9.755406, y: 5.8736973, z: 0}
   m_Children:
   - {fileID: 4032469711031888}
   - {fileID: 4347035388010782}
@@ -400,19 +399,6 @@ MonoBehaviour:
   gateIsOpen: 0
   destinationSceneIndex: 0
   edgeType: 1
---- !u!114 &114403375714028510
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1693937679131154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a2481e751e72ca41a23dd94c9e29414, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gateIsOpen: 1
-  destinationSceneIndex: 1
 --- !u!114 &114469343924233250
 MonoBehaviour:
   m_ObjectHideFlags: 1

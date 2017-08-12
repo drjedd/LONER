@@ -127,7 +127,7 @@ public class GateBehaviour : MonoBehaviour {
 			//store the relative position in the switch manager because this object is going to be destroyed (RIP)
 			SceneSwitchManager.playerRelativePosition = playerRelativePosition;
 
-			Debug.Log("LOADING SCENE #" + destinationSceneIndex);
+			//Debug.Log("LOADING SCENE #" + destinationSceneIndex);
 			SceneManager.LoadScene(destinationSceneIndex);
 		}
 	}

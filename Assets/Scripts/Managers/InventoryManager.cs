@@ -97,7 +97,16 @@ public class InventoryManager : MonoBehaviour {
                     itemObject.transform.localPosition = Vector2.zero;
 
                     itemObject.GetComponent<Image>().sprite = itemToAdd.Sprite;
-                    itemObject.name = itemToAdd.Title;
+					itemObject.name = itemToAdd.Title;
+
+					//if item is a weapon, add its specific logic script to it
+					if (itemToAdd.Type == Item.ItemType.FireArm)
+					{
+						//loading a prefab gun script, and adding it as child of the item object
+						GunBehaviour gunScript = itemObject.AddComponent<GunBehaviour>();
+						
+
+					}
 
                     //don't add the item to every free slot: get out of the loop!
                     break;
