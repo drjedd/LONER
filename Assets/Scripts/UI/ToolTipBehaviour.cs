@@ -8,7 +8,7 @@ public class ToolTipBehaviour : MonoBehaviour {
     public Color itemDamageColor;
     public Color itemDescriptionColor;
 
-    private Item item;
+    private ItemData item;
     private string itemData;
     public GameObject toolTip;
 
@@ -30,7 +30,7 @@ public class ToolTipBehaviour : MonoBehaviour {
         //}
     }
     
-    public void Activate (Item item)
+    public void Activate (ItemData item)
     {
         this.item = item;
         ConstructDataString();

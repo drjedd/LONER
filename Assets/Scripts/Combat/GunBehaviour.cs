@@ -4,46 +4,28 @@ using UnityEngine.UI;
 
 public class GunBehaviour : MonoBehaviour {
 
-	public bool inUse = true;
-    public GameObject projectilePrefab;
+	public GunData GunData;
 
-	//source of the projectile, usually the right hand
+	public bool inUse = false;
+	private bool canShoot = true;
+	private bool reloading = true;
+
+	private InventoryManager inventoryManager;
+
+	//source of the projectile (limited to right hand for now)
 	private GameObject projectileSource;
 
 	//camera shake curve
 	private MainCameraBehaviour mainCamera;
-	public AnimationCurve cameraShakeCurve;
 	private float cameraShakeCurveEndTime;
 
-	//gun sounds
+	//gun sounds source
 	private AudioSource gunAudioSource;
-	public AudioClip[] gunShotSounds;
-
-	//gun firing mechanics, reloading delays
-	public int ammoSpentPerShot;
-
-	[Tooltip("In seconds")]
-	public float fireRate;
-    private bool canShoot = true;
-
-	[Tooltip("In seconds")]
-	public float reloadRate;
-	private bool reloading = false;
-
-	[Range(0.0f, 30.0f)]
-	public float scatteringAngle;
-
-	public float projectileSpeed;
-
-    public float projectileMinDamage;
-    public float projectileMaxDamage;
-
-	public int magazineSize;
+	
 	private int magazineCurrentSize;
 
-	private InventoryManager inventoryManager;
 
-	private void Start()
+	public void InitialChecks()
 	{
 		//security checks: look for inventory manager in scene, make sure proper component is attached
 		GameObject inventoryManagerObject = GameObject.FindGameObjectWithTag("InventoryManager");
@@ -79,16 +61,8 @@ public class GunBehaviour : MonoBehaviour {
 			}
 		}
 
-
-
-		//debug: start will full magazine
-		magazineCurrentSize = magazineSize;
-	}
-
-	private void Awake()
-	{
 		//find the last keyframe of the shake curve
-		Keyframe lastKeyframe = cameraShakeCurve[cameraShakeCurve.length - 1];
+		Keyframe lastKeyframe = GunData.cameraShakeCurve[GunData.cameraShakeCurve.length - 1];
 		cameraShakeCurveEndTime = lastKeyframe.time;
 
 
@@ -97,9 +71,15 @@ public class GunBehaviour : MonoBehaviour {
 
 
 		gunAudioSource = GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>();
+
+		//debug: start will full magazine
+		magazineCurrentSize = GunData.magazineSize;
 	}
 
 	void Update () {
+
+		//enable gun only if item is equipped
+		inUse = GetComponent<UIItem>().inUse;
 
 		//shoot only if aiming and not reloading
 		if (inUse && Input.GetKey(KeyCode.Mouse1) && Input.GetKeyDown(KeyCode.Mouse0) && canShoot && inventoryManager.CheckIfItemIsInInventory(4))
@@ -110,15 +90,14 @@ public class GunBehaviour : MonoBehaviour {
 
     IEnumerator Shoot()
     {
-		Debug.Log(projectileSource.transform.position);
-		Debug.Log(projectileSource.transform.eulerAngles);
-
 		//sound! PogChamp
-		AudioClip randomSFX = gunShotSounds[Random.Range(0, gunShotSounds.Length)];
-		gunAudioSource.PlayOneShot(randomSFX);
+		if ( GunData.gunShotSounds.Length > 0 ) {
+			AudioClip randomSFX = GunData.gunShotSounds[Random.Range(0, GunData.gunShotSounds.Length)];
+			gunAudioSource.PlayOneShot(randomSFX);
+		}
 
 		//apply camera shake
-		mainCamera.cameraShakeCurve = cameraShakeCurve;
+		mainCamera.cameraShakeCurve = GunData.cameraShakeCurve;
 		mainCamera.cameraShakeCurveEndTime = cameraShakeCurveEndTime;
 		mainCamera.cameraShakeCurrentTime = 0;
 
@@ -126,18 +105,18 @@ public class GunBehaviour : MonoBehaviour {
 		int i = 0;
 
 		do { 
-			GameObject newShot = Instantiate(projectilePrefab);
+			GameObject newShot = Instantiate(GunData.projectilePrefab);
 
 			//calculating damage
-			newShot.GetComponent<DamageBehaviour>().damage = Random.Range(projectileMinDamage, projectileMaxDamage);
+			newShot.GetComponent<DamageBehaviour>().damage = Random.Range(GunData.projectileMinDamage, GunData.projectileMaxDamage);
 
 			newShot.gameObject.transform.position = projectileSource.transform.position;
 
 			//apply random scattering factor
-			Vector3 scattering = new Vector3(0, 0, Random.Range(-scatteringAngle, scatteringAngle));
+			Vector3 scattering = new Vector3(0, 0, Random.Range(-GunData.scatteringAngle, GunData.scatteringAngle));
 			newShot.gameObject.transform.Rotate(projectileSource.transform.eulerAngles + scattering);
 
-			newShot.GetComponent<Rigidbody2D>().AddForce(newShot.gameObject.transform.up * projectileSpeed);
+			newShot.GetComponent<Rigidbody2D>().AddForce(newShot.gameObject.transform.up * GunData.projectileSpeed);
 
 			// (poor) ammo management
 			magazineCurrentSize --;
@@ -145,7 +124,7 @@ public class GunBehaviour : MonoBehaviour {
 
 			i++;
 
-		} while ( i < ammoSpentPerShot);
+		} while ( i < GunData.ammoSpentPerShot);
 
 		if (magazineCurrentSize <= 0)
 		{
@@ -153,18 +132,18 @@ public class GunBehaviour : MonoBehaviour {
 			canShoot = false;
 			reloading = true;
 
-			yield return new WaitForSeconds(reloadRate);
+			yield return new WaitForSeconds(GunData.reloadRate);
 
 
 			//TODO: proper ammo reloading mechanics
-			magazineCurrentSize = magazineSize;
+			magazineCurrentSize = GunData.magazineSize;
 			reloading = false;
 		}
 		else
 		{
 			//firing delay
 			canShoot = false;
-			yield return new WaitForSeconds(fireRate);
+			yield return new WaitForSeconds(GunData.fireRate);
 		}
 		
 		canShoot = true;

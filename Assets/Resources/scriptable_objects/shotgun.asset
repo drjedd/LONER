@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94636927c9e42d644a73f81ffccd5480, type: 3}
+  m_Name: shotgun
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 1000011977662264, guid: 932c9712832c57c4ea555c83da19e77d,
+    type: 2}
+  cameraShakeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: -0.000609615
+      value: 1.0040027
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+    - serializedVersion: 2
+      time: 0.46269953
+      value: 0.69054055
+      inSlope: -1.3480726
+      outSlope: -1.3480726
+      tangentMode: 136
+    - serializedVersion: 2
+      time: 0.74650884
+      value: -0.0031672302
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  gunShotSounds: []
+  ammoSpentPerShot: 7
+  fireRate: 1
+  reloadRate: 3
+  scatteringAngle: 30
+  projectileSpeed: 2000
+  projectileMinDamage: 5
+  projectileMaxDamage: 10
+  magazineSize: 14

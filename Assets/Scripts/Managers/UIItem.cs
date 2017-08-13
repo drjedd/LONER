@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using System;
 
 //inherit more interfaces for Drag'n'Drop 
-public class ItemData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler {
+public class UIItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+{
 
-    public Item item;
+    public ItemData item;
     public int amount;
+	public bool inUse;
 
     private ToolTipBehaviour toolTip;
     private InventoryManager inventory;
@@ -16,8 +19,12 @@ public class ItemData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     private Vector2 offset;
 
+	//for double click item equip logic
+	private float timeAtLastClick = -1f;
+
     void Start ()
     {
+		//ghetto code
         inventory = GameObject.Find("InventoryManager").GetComponent<InventoryManager>();
         toolTip = inventory.GetComponent<ToolTipBehaviour>();
     }
@@ -72,4 +79,22 @@ public class ItemData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {
         toolTip.Deactivate();
     }
+
+	public void OnPointerClick(PointerEventData eventData)
+	{
+		//if double click
+		if ( ( Time.time - timeAtLastClick ) <= Const.MAX_TIME_BETWEEN_DOUBLE_CLICK )
+		{
+			inventory.ToggleItemEquip(this);
+
+			//reset last click time to avoid extra double click events
+			timeAtLastClick = -1f;
+		}
+		else
+		{
+			timeAtLastClick = Time.time;
+		}
+	}
+
+	
 }

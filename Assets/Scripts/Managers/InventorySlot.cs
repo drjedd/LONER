@@ -15,13 +15,13 @@ public class InventorySlot : MonoBehaviour, IDropHandler
     
     public void OnDrop(PointerEventData eventData)
     {
-        ItemData droppedItem = eventData.pointerDrag.GetComponent<ItemData>();
+        UIItem droppedItem = eventData.pointerDrag.GetComponent<UIItem>();
 
         //if there is no item in desired drop slot
         if (inventory.items[slotID].ID == -1)
         {
             //clear the slot the item is dragged from, BEFORE assigning new slot
-            inventory.items[droppedItem.slotID] = new Item();
+            inventory.items[droppedItem.slotID] = new ItemData();
             inventory.items[slotID] = droppedItem.item;
 
             droppedItem.slotID = slotID;
@@ -31,7 +31,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler
             Transform swappedItem = this.transform.GetChild(0);
 
             //OPTIMISE: add a setter accessor to call a function that moves the gameObject automatically
-            swappedItem.GetComponent<ItemData>().slotID = droppedItem.slotID;
+            swappedItem.GetComponent<UIItem>().slotID = droppedItem.slotID;
             swappedItem.transform.SetParent(inventory.slots[droppedItem.slotID].transform);
             swappedItem.transform.position = inventory.slots[droppedItem.slotID].transform.position;
 
@@ -39,7 +39,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler
             droppedItem.transform.SetParent(this.transform);
             droppedItem.transform.position = this.transform.position;
 
-            inventory.items[droppedItem.slotID] = swappedItem.GetComponent<ItemData>().item;
+            inventory.items[droppedItem.slotID] = swappedItem.GetComponent<UIItem>().item;
             inventory.items[slotID] = droppedItem.item;
         }
     }

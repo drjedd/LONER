@@ -16,4 +16,6 @@ public static class Const {
 
 	public const float SCENE_SWITCH_PADDING = .5f;
 
+	public const float MAX_TIME_BETWEEN_DOUBLE_CLICK = 0.25f;
+
 }

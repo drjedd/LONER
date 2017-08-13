@@ -15,7 +15,7 @@ public class InventoryManager : MonoBehaviour {
 
     public int slotAmount;
 
-    public List<Item> items = new List<Item>();
+    public List<ItemData> items = new List<ItemData>();
     public List<GameObject> slots = new List<GameObject>();
 
     void Start ()
@@ -37,7 +37,7 @@ public class InventoryManager : MonoBehaviour {
             slots.Add(newSlot);
 
             //add empty item to inventory to keep 1 to 1 ratio
-            items.Add(new Item());
+            items.Add(new ItemData());
 
         }
     }
@@ -54,7 +54,7 @@ public class InventoryManager : MonoBehaviour {
 
     public void AddItem(int id)
     {
-        Item itemToAdd = database.FetchItemByID(id);
+        ItemData itemToAdd = database.FetchItemByID(id);
 
         //stack if item is stackable and already in inventory
         if (itemToAdd.Stackable && CheckIfItemIsInInventory(itemToAdd.ID))
@@ -65,7 +65,7 @@ public class InventoryManager : MonoBehaviour {
                 if (items[i].ID == id)
                 {
                     //Item is the only child of each slot, therefore GetChild(0) works
-                    ItemData data = slots[i].transform.GetChild(0).GetComponent<ItemData>();
+                    UIItem data = slots[i].transform.GetChild(0).GetComponent<UIItem>();
                     data.amount++;
                     data.transform.GetChild(0).GetComponent<Text>().text = data.amount.ToString();
 
@@ -85,12 +85,12 @@ public class InventoryManager : MonoBehaviour {
 
                     //create visualization for item, position relative to parent slot
                     GameObject itemObject = Instantiate(inventoryItem);
-                    itemObject.gameObject.GetComponent<ItemData>().item = itemToAdd;
+                    itemObject.gameObject.GetComponent<UIItem>().item = itemToAdd;
 
                     //OPTIMISE: remember item original slot for Drag'n'Drop logic, a bit messy, could also cash ItemData into a variable
-                    itemObject.gameObject.GetComponent<ItemData>().slotID = i;
+                    itemObject.gameObject.GetComponent<UIItem>().slotID = i;
 
-                    itemObject.gameObject.GetComponent<ItemData>().amount = 1;
+                    itemObject.gameObject.GetComponent<UIItem>().amount = 1;
 
                     //positioning and hierarchy
                     itemObject.transform.SetParent(slots[i].transform);
@@ -99,13 +99,11 @@ public class InventoryManager : MonoBehaviour {
                     itemObject.GetComponent<Image>().sprite = itemToAdd.Sprite;
 					itemObject.name = itemToAdd.Title;
 
-					//if item is a weapon, add its specific logic script to it
-					if (itemToAdd.Type == Item.ItemType.FireArm)
-					{
-						//loading a prefab gun script, and adding it as child of the item object
-						GunBehaviour gunScript = itemObject.AddComponent<GunBehaviour>();
-						
+					if (itemToAdd.Type == ItemData.ItemType.FireArm) {
+						GunBehaviour gunLogic = itemObject.AddComponent<GunBehaviour>();
+						gunLogic.GunData = Resources.Load("scriptable_objects/" + itemToAdd.Slug) as GunData;
 
+						gunLogic.InitialChecks();
 					}
 
                     //don't add the item to every free slot: get out of the loop!
@@ -117,7 +115,7 @@ public class InventoryManager : MonoBehaviour {
 
 	public void RemoveItem(int id)
 	{
-		Item itemToRemove = database.FetchItemByID(id);
+		ItemData itemToRemove = database.FetchItemByID(id);
 
 		//stack if item is stackable and already in inventory
 		if (itemToRemove.Stackable && CheckIfItemIsInInventory(itemToRemove.ID))
@@ -128,7 +126,7 @@ public class InventoryManager : MonoBehaviour {
 				if (items[i].ID == id)
 				{
 					//Item is the only child of each slot, therefore GetChild(0) works
-					ItemData data = slots[i].transform.GetChild(0).GetComponent<ItemData>();
+					UIItem data = slots[i].transform.GetChild(0).GetComponent<UIItem>();
 					data.amount--;
 
 					if (data.amount == 0)
@@ -167,4 +165,15 @@ public class InventoryManager : MonoBehaviour {
 
         return false;
     }
+
+	public void ToggleItemEquip(UIItem itemToToggleEquip)
+	{
+		itemToToggleEquip.inUse = !itemToToggleEquip.inUse;
+
+		//gross prototype code
+		if (itemToToggleEquip.transform.parent.gameObject.GetComponent<Image>().color != Color.yellow)
+			itemToToggleEquip.transform.parent.gameObject.GetComponent<Image>().color = Color.yellow;
+		else
+			itemToToggleEquip.transform.parent.gameObject.GetComponent<Image>().color = Color.white;
+	}
 }
