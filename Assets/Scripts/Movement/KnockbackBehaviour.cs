@@ -10,7 +10,6 @@ using System.Collections;
 public class KnockbackBehaviour : MonoBehaviour {
     
     private Collider2D localCollider;
-    private Collider2D targetCollider;
     private Vector2 localColliderCenter;
     private Vector2 targetColliderCenter;
     private PhysicsBehaviour targetPhysicsBehaviour;
@@ -36,7 +35,7 @@ public class KnockbackBehaviour : MonoBehaviour {
     //VERIFY: is OnCollisionEnter the best function to call? There's also -Stay and -Exit
     void OnCollisionEnter2D(Collision2D collision)
     {
-        targetCollider = collision.collider;
+		Collider2D targetCollider = collision.collider;
 
         targetPhysicsBehaviour = targetCollider.gameObject.GetComponent<PhysicsBehaviour>();
         if (targetPhysicsBehaviour != null)
@@ -61,11 +60,11 @@ public class KnockbackBehaviour : MonoBehaviour {
 
             if (knockbackSuccessful)
             {
-                Debug.Log(gameObject.name + " pushed " + targetCollider.gameObject.name + ". Vector: " + knockbackDirection.ToString());
+                //Debug.Log(gameObject.name + " pushed " + targetCollider.gameObject.name + ". Vector: " + knockbackDirection.ToString());
             }
             else
             {
-                Debug.Log(gameObject.name + " failed to push " + targetCollider.gameObject.name);
+                //Debug.Log(gameObject.name + " failed to push " + targetCollider.gameObject.name);
             }
         }
     }

@@ -38,8 +38,8 @@ MonoBehaviour:
   ammoSpentPerShot: 1
   fireRate: 0.5
   reloadRate: 2
-  scatteringAngle: 3
-  projectileSpeed: 1500
+  scatteringAngle: 0
+  projectileSpeed: 800
   projectileMinDamage: 25
   projectileMaxDamage: 30
   magazineSize: 6

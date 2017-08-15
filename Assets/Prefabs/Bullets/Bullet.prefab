@@ -23,10 +23,11 @@ GameObject:
   - component: {fileID: 212000013145072164}
   - component: {fileID: 61000012958584684}
   - component: {fileID: 114000012306088588}
-  - component: {fileID: 50349183914533732}
+  - component: {fileID: 114728612890237184}
+  - component: {fileID: 50893544776343698}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: ShotgunBullet
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67,32 +68,32 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011977662264}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.6199698, y: 2.545707, z: 0}
   m_LocalScale: {x: 0.5750323, y: 0.6069386, z: 0.47189516}
   m_Children:
   - {fileID: 4000010525090718}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50349183914533732
+--- !u!50 &50893544776343698
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011977662264}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_Interpolate: 1
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &61000012958584684
 BoxCollider2D:
@@ -106,7 +107,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00009553507, y: 0.00016242452}
+  m_Offset: {x: 0.004375018, y: 0.0060920045}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -117,7 +118,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.04061181, y: 0.070816696}
+  m_Size: {x: 0.27843404, y: 0.22837155}
   m_EdgeRadius: 0
 --- !u!96 &96000013844576340
 TrailRenderer:
@@ -152,10 +153,10 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Time: 1
+  m_Time: 10000
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 0.8
+    widthMultiplier: 1.2
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -234,6 +235,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletTrail: {fileID: 1000012438521866}
+  bulletSpeed: 0
+  moving: 1
+--- !u!114 &114728612890237184
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011977662264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60fe89e9ab4a42144b5e6f024e2e3f3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockbackStrength: 5
 --- !u!212 &212000013145072164
 SpriteRenderer:
   m_ObjectHideFlags: 1

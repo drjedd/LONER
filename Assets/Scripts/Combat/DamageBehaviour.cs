@@ -28,7 +28,7 @@ public class DamageBehaviour : MonoBehaviour {
                 
             if (damageSuccessful)
             {
-                Debug.Log(gameObject.name + " dealt " + damage + " damage to " + collisionTarget.gameObject.name);
+                //Debug.Log(gameObject.name + " dealt " + damage + " damage to " + collisionTarget.gameObject.name);
             }
             else
             {

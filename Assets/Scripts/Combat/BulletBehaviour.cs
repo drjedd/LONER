@@ -5,6 +5,9 @@ public class BulletBehaviour : MonoBehaviour {
 
     public GameObject bulletTrail;
 
+	public float bulletSpeed;
+	public bool moving = true;
+
     void Start ()
     {
         //bullet trail debug
@@ -14,16 +17,26 @@ public class BulletBehaviour : MonoBehaviour {
 
     void Awake ()
     {
-        Destroy(gameObject, 3);
+        Destroy(gameObject, Const.BULLET_LIFE_TIME);
     }
 	
     void OnCollisionEnter2D(Collision2D collision)
     {
+		Debug.Log("TRIGGERED HotPokket (BulletBehaviour");
         if (collision.collider.gameObject.tag != "ShotgunBullet")
         {
-			GetComponent<Rigidbody2D>().Sleep();
+			//GetComponent<Rigidbody2D>().Sleep();
 			GetComponent<Collider2D>().enabled = false;
-			Destroy(gameObject, 3);
+			Destroy(gameObject, Const.BULLET_LIFE_TIME);
 		}
+
+		moving = false;
     }
+
+	private void FixedUpdate()
+	{
+		if (moving) {
+			transform.position = transform.forward * bulletSpeed * Time.deltaTime;
+		}
+	}
 }

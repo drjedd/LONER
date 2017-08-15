@@ -18,4 +18,6 @@ public static class Const {
 
 	public const float MAX_TIME_BETWEEN_DOUBLE_CLICK = 0.25f;
 
+	public const float BULLET_LIFE_TIME = 3f;
+
 }

@@ -113,10 +113,19 @@ public class GunBehaviour : MonoBehaviour {
 			newShot.gameObject.transform.position = projectileSource.transform.position;
 
 			//apply random scattering factor
-			Vector3 scattering = new Vector3(0, 0, Random.Range(-GunData.scatteringAngle, GunData.scatteringAngle));
-			newShot.gameObject.transform.Rotate(projectileSource.transform.eulerAngles + scattering);
+			//Vector3 scattering = new Vector3(0, 0, Random.Range(-GunData.scatteringAngle, GunData.scatteringAngle));
 
-			newShot.GetComponent<Rigidbody2D>().AddForce(newShot.gameObject.transform.up * GunData.projectileSpeed);
+		
+			newShot.gameObject.transform.LookAt(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+
+			//TODO: Find and apply the fixes for 2D, or find another algorythm
+
+
+			//newShot.gameObject.transform.LookAt(mainCamera.GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition));
+
+			//newShot.GetComponent<Rigidbody2D>().AddForce(newShot.gameObject.transform.up * GunData.projectileSpeed);
+
+			newShot.GetComponent<BulletBehaviour>().bulletSpeed = GunData.projectileSpeed;
 
 			// (poor) ammo management
 			magazineCurrentSize --;

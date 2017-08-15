@@ -47,18 +47,17 @@ public class WorldItemBehaviour : MonoBehaviour {
             Debug.LogError(gameObject.name + ": No Collider2D component attached, required for some functionality (e.g. pick-up item) to work. (Collision-based)");
         }
     }
+	
+    void OnTriggerEnter2D (Collider2D collider) {
 
-    //VERIFY: is OnCollisionStay the best method to use?
-    void OnCollisionEnter2D (Collision2D collision) {
-
-        if (collision.collider.gameObject.tag == "Player")
+        if (collider.gameObject.tag == "Player")
         {
 			for (int i = 0; i < itemQuantity; i++)
 			{
 				inventoryManager.AddItem(itemID); //pick up item, shitty prototype code
 			}
             DestroyObject(gameObject);
-            Debug.Log(gameObject.name + " was picked up by " + collision.collider.gameObject.name);
+            Debug.Log(gameObject.name + " was picked up by " + collider.gameObject.name);
         }
 
     }

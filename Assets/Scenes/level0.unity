@@ -1381,16 +1381,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 212753864570873808, guid: 1144c89b1fd9f734e8590267b7c4dad2,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114281499749774006, guid: 1144c89b1fd9f734e8590267b7c4dad2,
-        type: 2}
-      propertyPath: itemQuantity
-      value: 30
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1144c89b1fd9f734e8590267b7c4dad2, type: 2}
   m_IsPrefabParent: 0
@@ -1819,11 +1809,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000010687274470, guid: 48134324af9cfdb4592ef06169928a72, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.1221619
+      value: -3.135
       objectReference: {fileID: 0}
     - target: {fileID: 4000010687274470, guid: 48134324af9cfdb4592ef06169928a72, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.0134354
+      value: 0.209
       objectReference: {fileID: 0}
     - target: {fileID: 4000010687274470, guid: 48134324af9cfdb4592ef06169928a72, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1852,6 +1842,11 @@ Prefab:
     - target: {fileID: 1000013287223598, guid: 48134324af9cfdb4592ef06169928a72, type: 2}
       propertyPath: m_Name
       value: icon_gun
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000013343625358, guid: 48134324af9cfdb4592ef06169928a72,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 48134324af9cfdb4592ef06169928a72, type: 2}
@@ -1894,16 +1889,6 @@ Prefab:
     - target: {fileID: 4398288940660454, guid: 73ef8564fcff43c4fb8d4726d7b9f132, type: 2}
       propertyPath: m_RootOrder
       value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 212401412032521022, guid: 73ef8564fcff43c4fb8d4726d7b9f132,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114740316942517474, guid: 73ef8564fcff43c4fb8d4726d7b9f132,
-        type: 2}
-      propertyPath: itemQuantity
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 73ef8564fcff43c4fb8d4726d7b9f132, type: 2}
@@ -2106,11 +2091,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114000013421797278, guid: ab446b792d7ca5a4c96070c3744f34b3,
-        type: 2}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 664239660}
     - target: {fileID: 1000010087075168, guid: ab446b792d7ca5a4c96070c3744f34b3, type: 2}
       propertyPath: m_Name
       value: Zombie (5)
@@ -3569,7 +3549,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2068409224}
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: -0.08700001, y: -0.022, z: 0}
+  m_LocalPosition: {x: -0.0612, y: -0.0468, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 404656842}
