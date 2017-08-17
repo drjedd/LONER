@@ -101,13 +101,20 @@ public class InventoryManager : MonoBehaviour {
 
 					if (itemToAdd.Type == ItemData.ItemType.FireArm) {
 						GunBehaviour gunLogic = itemObject.AddComponent<GunBehaviour>();
-						gunLogic.GunData = Resources.Load("scriptable_objects/" + itemToAdd.Slug) as GunData;
+						gunLogic.GunData = Resources.Load("scriptable_objects/guns/" + itemToAdd.Slug) as GunData;
 
 						gunLogic.InitialChecks();
 					}
+					else if (itemToAdd.Type == ItemData.ItemType.Projectile)
+					{
+						ThrowBehaviour throwLogic = itemObject.AddComponent<ThrowBehaviour>();
+						throwLogic.ProjectileData = Resources.Load("scriptable_objects/projectiles/" + itemToAdd.Slug) as ProjectileData;
 
-                    //don't add the item to every free slot: get out of the loop!
-                    break;
+						throwLogic.InitialChecks();
+					}
+
+					//don't add the item to every free slot: get out of the loop!
+					break;
                 }
             }
         }

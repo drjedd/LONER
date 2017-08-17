@@ -11,6 +11,7 @@ TagManager:
   - ProjectileSource
   - Manager
   - Terrain
+  - ThrowPercentage
   layers:
   - Default
   - TransparentFX
