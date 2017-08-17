@@ -4,6 +4,7 @@ using System.Collections;
 public class BulletBehaviour : MonoBehaviour {
 
     public GameObject bulletTrail;
+	public GameObject owner;
 
 	public float bulletSpeed;
 	public bool moving = true;
@@ -13,7 +14,8 @@ public class BulletBehaviour : MonoBehaviour {
         //bullet trail debug
         bulletTrail.GetComponent<TrailRenderer>().sortingLayerName = "Foreground";
         bulletTrail.GetComponent<TrailRenderer>().sortingOrder = 100;
-    }
+
+	}
 
     void Awake ()
     {
@@ -22,21 +24,28 @@ public class BulletBehaviour : MonoBehaviour {
 	
     void OnCollisionEnter2D(Collision2D collision)
     {
-		Debug.Log("TRIGGERED HotPokket (BulletBehaviour");
-        if (collision.collider.gameObject.tag != "ShotgunBullet")
-        {
-			//GetComponent<Rigidbody2D>().Sleep();
-			GetComponent<Collider2D>().enabled = false;
-			Destroy(gameObject, Const.BULLET_LIFE_TIME);
+		Debug.Log("Bullet collided with: " + collision.collider.gameObject.name);
+		//do not collide with the person who fired
+		if ( collision.collider.gameObject != owner ) { 
+
+			//debug for shotgun bullets
+			if ( collision.collider.gameObject.tag != "ShotgunBullet" ) {
+				
+				//GetComponent<TrailRenderer>().
+
+				GetComponent<Rigidbody2D>().Sleep();
+				GetComponent<Collider2D>().enabled = false;
+				Destroy(gameObject, Const.BULLET_LIFE_TIME);
+			}
 		}
 
 		moving = false;
     }
 
-	private void FixedUpdate()
-	{
-		if (moving) {
-			transform.position = transform.forward * bulletSpeed * Time.deltaTime;
-		}
-	}
+	//private void Update() {
+	//	if ( moving ) {
+	//		transform.position += transform.up * bulletSpeed * Time.deltaTime;
+	//	}
+
+	//}
 }

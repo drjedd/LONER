@@ -85,14 +85,14 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &61000012958584684
 BoxCollider2D:
@@ -234,6 +234,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletTrail: {fileID: 1000012438521866}
+  owner: {fileID: 0}
+  bulletSpeed: 0
+  moving: 1
 --- !u!212 &212000013145072164
 SpriteRenderer:
   m_ObjectHideFlags: 1

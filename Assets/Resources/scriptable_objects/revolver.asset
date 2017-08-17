@@ -17,17 +17,17 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
-      time: 0.0011538075
-      value: 1.000538
+      time: 0
+      value: 0.001676023
       inSlope: 0
       outSlope: 0
-      tangentMode: 136
+      tangentMode: 0
     - serializedVersion: 2
-      time: 0.6973611
-      value: -0.00085463235
+      time: 1
+      value: 0.001676023
       inSlope: 0
       outSlope: 0
-      tangentMode: 136
+      tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
@@ -39,7 +39,7 @@ MonoBehaviour:
   fireRate: 0.5
   reloadRate: 2
   scatteringAngle: 0
-  projectileSpeed: 800
+  projectileSpeed: 100
   projectileMinDamage: 25
   projectileMaxDamage: 30
   magazineSize: 6

@@ -33,6 +33,12 @@ public class InputManager : MonoBehaviour
     void Update()
     {
 
+		
+		if (Input.GetKeyDown(KeyCode.F5))
+		{
+			Debug.Break();
+		}
+
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
 			Application.Quit();

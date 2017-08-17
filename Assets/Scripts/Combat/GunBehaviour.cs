@@ -112,23 +112,33 @@ public class GunBehaviour : MonoBehaviour {
 
 			newShot.gameObject.transform.position = projectileSource.transform.position;
 
+			//define bullet base rotation
+			newShot.gameObject.transform.up =  Camera.main.ScreenToWorldPoint(Input.mousePosition) - newShot.gameObject.transform.position;
+
+
 			//apply random scattering factor
-			//Vector3 scattering = new Vector3(0, 0, Random.Range(-GunData.scatteringAngle, GunData.scatteringAngle));
+			Vector3 scattering = new Vector3(0, 0, Random.Range(-GunData.scatteringAngle, GunData.scatteringAngle));
 
-		
-			newShot.gameObject.transform.LookAt(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-
-			//TODO: Find and apply the fixes for 2D, or find another algorythm
-
+			Debug.Log("Scattering: " + scattering.z);
+			newShot.gameObject.transform.Rotate(scattering);
 
 			//newShot.gameObject.transform.LookAt(mainCamera.GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition));
 
-			//newShot.GetComponent<Rigidbody2D>().AddForce(newShot.gameObject.transform.up * GunData.projectileSpeed);
+			newShot.GetComponent<Rigidbody2D>().AddForce((newShot.gameObject.transform.up) * GunData.projectileSpeed);
 
-			newShot.GetComponent<BulletBehaviour>().bulletSpeed = GunData.projectileSpeed;
+			Physics2D.IgnoreCollision(newShot.GetComponent<Collider2D>(), Player.Instance.gameObject.GetComponent<Collider2D>(), true);
+
+
+
+			//BulletBehaviour bulletBehaviour = newShot.GetComponent<BulletBehaviour>();
+
+			//bulletBehaviour.bulletSpeed = GunData.projectileSpeed;
+
+			////debug: assigning Player as default owner
+			//bulletBehaviour.owner = Player.Instance.gameObject;
 
 			// (poor) ammo management
-			magazineCurrentSize --;
+			magazineCurrentSize--;
 			inventoryManager.RemoveItem(4);
 
 			i++;

@@ -24,12 +24,13 @@ GameObject:
   - component: {fileID: 61000012256255256}
   - component: {fileID: 114000014207237596}
   - component: {fileID: 114000013587445232}
+  - component: {fileID: 114303236454950582}
   m_Layer: 0
   m_Name: Cactus1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4000012331082030
 Transform:
@@ -38,8 +39,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011416231166}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.1644897, y: 0.5041466, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -4.029, y: -0.228, z: 0}
+  m_LocalScale: {x: 0.99764997, y: 0.99764997, z: 0.99764997}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -108,6 +109,17 @@ MonoBehaviour:
   regenerationRate: 0
   postDamageDelay: 0
   canTakeDamage: 1
+--- !u!114 &114303236454950582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011416231166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fdefa06dfc5e23409ba39ef9a95c917, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212000013291454570
 SpriteRenderer:
   m_ObjectHideFlags: 1

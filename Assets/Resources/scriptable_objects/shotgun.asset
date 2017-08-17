@@ -18,19 +18,13 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 2
       time: -0.000609615
-      value: 1.0040027
+      value: 1.2019631
       inSlope: 0
       outSlope: 0
       tangentMode: 136
     - serializedVersion: 2
-      time: 0.46269953
-      value: 0.69054055
-      inSlope: -1.3480726
-      outSlope: -1.3480726
-      tangentMode: 136
-    - serializedVersion: 2
-      time: 0.74650884
-      value: -0.0031672302
+      time: 0.4981675
+      value: -0.0031672337
       inSlope: 0
       outSlope: 0
       tangentMode: 136
@@ -39,9 +33,9 @@ MonoBehaviour:
     m_RotationOrder: 0
   gunShotSounds: []
   ammoSpentPerShot: 7
-  fireRate: 1
-  reloadRate: 3
-  scatteringAngle: 30
+  fireRate: 0.3
+  reloadRate: 0.5
+  scatteringAngle: 15
   projectileSpeed: 2000
   projectileMinDamage: 5
   projectileMaxDamage: 10

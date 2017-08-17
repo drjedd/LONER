@@ -21,7 +21,7 @@ public class GunData : ScriptableObject {
 	[Tooltip("In seconds")]
 	public float reloadRate;
 
-	[Range(0.0f, 30.0f)]
+	[Range(0.0f, 100.0f)]
 	public float scatteringAngle;
 
 	public float projectileSpeed;
