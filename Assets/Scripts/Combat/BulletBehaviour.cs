@@ -36,6 +36,12 @@ public class BulletBehaviour : MonoBehaviour {
 				GetComponent<Rigidbody2D>().Sleep();
 				GetComponent<Collider2D>().enabled = false;
 				Destroy(gameObject, Const.BULLET_LIFE_TIME);
+
+				//debug: create a cube on the bullet's position at the moment of the collision
+				GameObject debugCube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+				debugCube.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
+				debugCube.transform.position = collision.otherCollider.transform.position;
+
 			}
 		}
 
