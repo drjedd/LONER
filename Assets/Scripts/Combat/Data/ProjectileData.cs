@@ -9,10 +9,15 @@ public class ProjectileData : ScriptableObject {
 
 	public AnimationCurve cameraShakeCurve;
 
-	//gun sounds
+
+	//throwBar hold sounds
+	public AudioClip throwBarHoldSound;
+
+	//throw sounds
 	public AudioClip[] throwSounds;
 
-	//gun firing mechanics, reloading delays
+
+	//throwing mechanics, reloading delays
 	public int ammoSpentPerThrow;
 
 	[Tooltip("In seconds")]
@@ -22,5 +27,14 @@ public class ProjectileData : ScriptableObject {
 	public float scatteringAngle;
 
 	public AnimationCurve throwStrengthCurve;
+
+	public float minStrength;
+	public float maxStrength;
+
+	public float minDamage;
+	public float maxDamage;
+
+	public float minRotationSpeed;
+	public float maxRotationSpeed;
 
 }

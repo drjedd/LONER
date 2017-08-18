@@ -18,38 +18,55 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: -0.0006529093
-      inSlope: 0
-      outSlope: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.48813698
+      value: 0.25718036
+      inSlope: 0.5591986
+      outSlope: 0.5591986
       tangentMode: 0
     - serializedVersion: 2
       time: 1
-      value: -0.0006529093
-      inSlope: 0
-      outSlope: 0
+      value: 1.0024147
+      inSlope: 2.5973237
+      outSlope: 2.5973237
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  throwSounds: []
+  throwBarHoldSound: {fileID: 8300000, guid: 38e8ec94965c9c74c8c655dd6b6e989d, type: 3}
+  throwSounds:
+  - {fileID: 8300000, guid: 3cf840225bcee9546844a854e1915763, type: 3}
+  - {fileID: 8300000, guid: 6049d045d7366eb4fae38e0e91fb1c48, type: 3}
+  - {fileID: 8300000, guid: 6853c023e08adb340a8e5f09ebd1ea8d, type: 3}
+  - {fileID: 8300000, guid: a3ef7f63d5ca8c84e98eb740fd27498e, type: 3}
   ammoSpentPerThrow: 1
-  throwRate: 1
+  throwRate: 0.3
   scatteringAngle: 0
   throwStrengthCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0
+      value: 5.0377502
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
       time: 1
-      value: 1
-      inSlope: 2
-      outSlope: 2
+      value: 10.006296
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+  minStrength: 8
+  maxStrength: 15
+  minDamage: 5
+  maxDamage: 25
+  minRotationSpeed: 200
+  maxRotationSpeed: 1200

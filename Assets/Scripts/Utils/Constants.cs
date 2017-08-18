@@ -20,4 +20,6 @@ public static class Const {
 
 	public const float BULLET_LIFE_TIME = 3f;
 
+	public const float THROW_UI_FADEOUT_TIME = 1f;
+
 }
