@@ -3,7 +3,10 @@ using System.Collections;
 
 public class PlayerAnimationBehaviour : MonoBehaviour
 {
-    
+
+	public AnimationCurve bodyAnimationCurve;
+	public AnimationCurve headAnimationCurve;
+
     public Animator attachedAnimator;
 
 	void Start ()
@@ -62,54 +65,8 @@ public class PlayerAnimationBehaviour : MonoBehaviour
 
 				LookAtAngle(inputAngle);	
 			}
-
-			//LEGACY SHITCODE (fun though!)
-
-			//else if (x / 2 > y)
-			//{
-			//	LookAtAngle(90);
-			//}
-			//else if (x < y / 2)
-			//{
-			//	LookAtAngle(225);
-			//}
-			//else if (x < y)
-			//{
-			//	LookAtAngle(180);
-			//}
-			//else if (x > y)
-			//{
-			//	LookAtAngle(135);
-			//}
-			//else if (x / 2 > y)
-			//{
-			//	LookAtAngle();
-			//}
-
+			
 		}
-
-		//EVEN MORE LEGACY SHITCODE
-
-		//else
-		//{
-		//	if (Input.GetKeyDown(KeyCode.W))
-		//	{
-		//		LookAtAngle(180);
-		//	}
-		//	else if (Input.GetKeyDown(KeyCode.D))
-		//	{
-		//		LookAtAngle(90);
-		//	}
-		//	else if (Input.GetKeyDown(KeyCode.S))
-		//	{
-		//		LookAtAngle(0);
-		//	}
-		//	else if (Input.GetKeyDown(KeyCode.A))
-		//	{
-		//		LookAtAngle(270);
-		//	}
-		//}
-
 	}
 
 	public void LookAtAngle(float angle)

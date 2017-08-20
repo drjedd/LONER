@@ -35,15 +35,5 @@ public class SceneSwitchManager : MonoBehaviour {
 			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		}
 
-		if (Input.GetKeyDown(KeyCode.Alpha1))
-		{
-			SceneManager.LoadScene(0);
-		}
-
-		if (Input.GetKeyDown(KeyCode.Alpha2))
-		{
-			SceneManager.LoadScene(1);
-		}
-
 	}
 }
