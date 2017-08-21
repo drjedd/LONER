@@ -2,6 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ *	GAME MANAGER (Unity Singleton)
+ *	
+ *	Not used as of August 2017
+ * 
+ *
+ */
+
 public class GameManager : MonoBehaviour
 {
 	//Unity singleton instance
@@ -10,11 +18,10 @@ public class GameManager : MonoBehaviour
 	{
 		get { return instance; }
 	}
-
-	// Use this for initialization
+	
 	void Awake()
 	{
-
+		//security checks
 		if (instance != null)
 		{
 			Debug.LogWarning("Another instance of GameManager Singleton was detected, killing this one now");
@@ -24,14 +31,6 @@ public class GameManager : MonoBehaviour
 
 		instance = this;
 		GameObject.DontDestroyOnLoad(this.gameObject);
-
-		Application.targetFrameRate = 60;
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
-
 	}
 }
 

@@ -80,6 +80,7 @@ public class UIItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHa
         toolTip.Deactivate();
     }
 
+	//double-click behaviour equips/unequips item
 	public void OnPointerClick(PointerEventData eventData)
 	{
 		//if double click

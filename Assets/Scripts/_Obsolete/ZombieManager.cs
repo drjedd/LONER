@@ -3,17 +3,17 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+/* ZOMBIE MANAGER (Obsolete)
+ * 
+ * Simple code that keeps track of enemies in the Scene. You win if they're all dead.
+ * 
+ * */
+
 public class ZombieManager : MonoBehaviour {
 
     public Text zombiesLeftUI;
     public Text statusTextUI;
-
-	// Use this for initialization
-	void Start () {
-
-	}
 	
-	// Update is called once per frame
 	void Update () {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 

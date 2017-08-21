@@ -10,7 +10,7 @@ public class BulletBehaviour : MonoBehaviour {
 
     void Start ()
     {
-        //bullet trail debug
+        //bullet trail debug (August 2016)
         bulletTrail.GetComponent<TrailRenderer>().sortingLayerName = "Foreground";
         bulletTrail.GetComponent<TrailRenderer>().sortingOrder = 100;
 
@@ -45,7 +45,7 @@ public class BulletBehaviour : MonoBehaviour {
 		moving = false;
     }
 
-	//KINEMATIC MOVEMENT
+	//KINEMATIC MOVEMENT (CURRENTLY NOT USED)
 	//private void Update() {
 	//	if ( moving ) {
 	//		transform.position += transform.up * bulletSpeed * Time.deltaTime;

@@ -1,6 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/* 
+ * INVENTORY PANEL BEHAVIOUR
+ * 
+ * Sliding UI panel to display inventory upon button press
+ * 
+ * TODO: use event system, make a generic class to slide-in all sort of stuff!
+ * 
+ */
+
 public class SlidingInventoryPanel : MonoBehaviour {
 
     private Animator attachedAnimator;

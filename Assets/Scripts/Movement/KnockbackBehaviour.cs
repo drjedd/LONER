@@ -3,8 +3,13 @@ using System.Collections;
 
 /*
 * PUSHBACK BEHAVIOUR
-* ---
-* pushes back collision target, if applicable
+* 
+* Pushes back collision target, if applicable
+* 
+* Current use: cactus spikes
+* 
+* Possible uses: grenades shockwave, bullet impact, pathfinding forcing
+* 
 */
 
 public class KnockbackBehaviour : MonoBehaviour {

@@ -15,7 +15,7 @@ public class WorldItemBehaviour : MonoBehaviour {
 
     void Start()
     {
-        //security checks: look for inventory manager in scene, make sure proper component is attached
+        //security checks: look for inventory manager in scene, make sure proper component is attached - ASAP: use Singleton manager
         GameObject inventoryManagerObject = GameObject.FindGameObjectWithTag("InventoryManager");
 
         if (inventoryManagerObject == null)

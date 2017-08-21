@@ -1,6 +1,13 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+/* 
+ * CONST STATIC CLASS
+ * 
+ * Hosts all game-wide constants for easy access and changing of stuff
+ * 
+ */
+
 public static class Const {
 
 	public const float CAMERA_SMOOTHING_FACTOR = .1f;

@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/* SCENE SWITCHING MANAGER (Unity Singleton)
+ * 
+ * Takes note of where the player left the previous scene, loads the next one and tries to position the player as close as possible so it feels right
+ * 
+ * TODO: centralise here the code that is spread out in the GateBehaviour objects
+ */
+
 public class SceneSwitchManager : MonoBehaviour {
 
 	protected static SceneSwitchManager instance;

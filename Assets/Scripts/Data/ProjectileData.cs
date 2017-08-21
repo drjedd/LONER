@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/* Scriptable Object hosts data from our throwable items like animation curves for the camera shake, scattering, fire rate, etc. */
+
 [CreateAssetMenu(fileName = "Projectile", menuName = "LONER/Editor Tools/Create Projectile")]
 public class ProjectileData : ScriptableObject {
 

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class ThrowBehaviour : MonoBehaviour
 {
 
+	//scriptable object instance, hence the capitalisation
 	public ProjectileData ProjectileData;
 
 	public bool inUse = false;

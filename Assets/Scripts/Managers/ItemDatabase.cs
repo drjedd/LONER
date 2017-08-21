@@ -6,6 +6,8 @@ using LitJson;
 
 //MOST OF THE CODE FROM AwfulMedia inventory tutorial on YouTube
 
+/* Two classes: ItemDatabase and ItemData (simply named "Item" in original tutorial) */
+
 public class ItemDatabase : MonoBehaviour {
     private List<ItemData> database = new List<ItemData>();
     private JsonData itemData;

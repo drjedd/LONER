@@ -1,6 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+ * MAIN CAMERA BEHAVIOUR
+ * 
+ * Defines the rules for a camera that:
+ * 
+ *	- can zoom in/out on player or other objects
+ *	- never shows the void beyond the edges of the scene
+ *	- can adapt to fit two objects in the screen space
+ *	- does camera shake
+ *	- smoothes any movement
+ * 
+ * TODO: move some logic out of update frame to be called only upon certain events (e.g. resolution change)
+ * 
+ */
+
 [RequireComponent(typeof(Camera))]
 public class MainCameraBehaviour : MonoBehaviour {
 

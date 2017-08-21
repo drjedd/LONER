@@ -10,6 +10,7 @@ public class ZombieBehaviour : MonoBehaviour {
 
     void Start()
     {
+		//security checks
         if (attachedAnimator == null)
         {
             Debug.LogError(gameObject.name + ": No Animator component attached, required for animation to work.");

@@ -177,7 +177,7 @@ public class InventoryManager : MonoBehaviour {
 	{
 		itemToToggleEquip.inUse = !itemToToggleEquip.inUse;
 
-		//gross prototype code
+		//gross prototype code to change equipped item background color
 		if (itemToToggleEquip.transform.parent.gameObject.GetComponent<Image>().color != Color.yellow)
 			itemToToggleEquip.transform.parent.gameObject.GetComponent<Image>().color = Color.yellow;
 		else

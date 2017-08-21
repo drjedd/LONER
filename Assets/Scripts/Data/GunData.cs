@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/* Scriptable Object hosts data from our guns like animation curves for the camera shake, magazine size, fire rate, etc. */
+
 [CreateAssetMenu(fileName = "Gun", menuName = "LONER/Editor Tools/Create Gun")]
 public class GunData : ScriptableObject {
 

@@ -2,6 +2,13 @@
 using UnityEngine.Events;
 using System.Collections;
 
+/* 
+ * PLAYER PHYSICS BEHAVIOUR
+ * 
+ * Defines the physics-based controls for the player character
+ * 
+ */ 
+
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerPhysicsBehaviour : MonoBehaviour {
 

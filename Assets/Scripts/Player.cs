@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/* 
+ * PLAYER (Unity Singleton, not destroyed on Scene Change)
+ * 
+ * Does not do much else at the moment ResidentSleeper
+ * 
+ */
+
 public class Player: MonoBehaviour {
 
 	protected static Player instance;
@@ -9,8 +16,7 @@ public class Player: MonoBehaviour {
 	{
 		get { return instance; }
 	}
-
-	// Use this for initialization
+	
 	void Awake () {
 		
 		if ( instance != null )
@@ -22,10 +28,5 @@ public class Player: MonoBehaviour {
 
 		instance = this;
 		GameObject.DontDestroyOnLoad(this.gameObject);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }

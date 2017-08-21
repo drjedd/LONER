@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FPSCounter : MonoBehaviour {
+public class FPSManager : MonoBehaviour {
 
-	//fps display
+	//FPS display
+	public int targetFramerate = 60;
+
 	public bool showFPS = true;
 	public Text FPSlabel;
 	private float FPScount;
 
-	//fps calculation
+	//FPS calculation
 	IEnumerator Start()
 	{
 		GUI.depth = 2;
@@ -27,8 +29,14 @@ public class FPSCounter : MonoBehaviour {
 				FPSlabel.text = "FPS: " + (Mathf.Round(FPScount));
 			}
 
+			//update twice per second so it's readable
 			yield return new WaitForSeconds(0.5f);
 		}
+	}
+
+	private void Awake()
+	{
+		Application.targetFrameRate = targetFramerate;
 	}
 
 }

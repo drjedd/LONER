@@ -1,6 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/* 
+ * PLAYER ANIMATION BEHAVIOUR
+ * 
+ * Defines player sprites and animations
+ * 
+ * Contains debug code for quick customisation through numbers 1-9
+ * 
+ */
+
 public class PlayerAnimation : MonoBehaviour
 {
 
@@ -123,7 +132,7 @@ public class PlayerAnimation : MonoBehaviour
 
 			if (movementInput != Vector2.zero) //if no axis input is detected, do not change looking angle
 			{
-				//Elegant solution by Zas_ in Twitch chat:
+				//Elegant solution by Zas_ in Twitch chat (<3):
 				float inputAngle;
 				if (movementInput.x >= 0)
 				{

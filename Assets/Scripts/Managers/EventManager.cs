@@ -7,6 +7,8 @@ using System.Linq;
 //design and code from Unity Live Training April 13th, 2015: https://www.youtube.com/watch?v=0AqG1fDhPT8
 
 /*
+ * THIS EVENT SYSTEM IS NOT USED AT ALL AS OF PROTO V0.15 (AUGUST 2017)
+ * 
  * TODO: OPTIMIZE
  * 1) static class not derived from MonoBehaviour (not linked to gameobject)
  * 2) security: prevent classes from deleting events, etc.

@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class GunBehaviour : MonoBehaviour {
 
+	//scriptable object instance, hence the capitalisation
 	public GunData GunData;
 
 	public bool inUse = false;

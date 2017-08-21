@@ -2,6 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/* 
+ * SPRITE SWITCHER BEHAVIOUR
+ * 
+ * allows the sprite renderer component of this object to quickly switch to a sprite within an array of possibilities.
+ * 
+ * allows to cycle to see all sprites in array
+ * 
+ */
+
 [RequireComponent(typeof(SpriteRenderer))]
 public class SpriteSwitcher : MonoBehaviour {
 
@@ -12,8 +21,7 @@ public class SpriteSwitcher : MonoBehaviour {
 
 	public bool canBeEmpty = false;
 	public bool isEmpty = false;
-
-	// Use this for initialization
+	
 	void Start () {
 		if (canBeEmpty && isEmpty)
 		{
@@ -25,13 +33,7 @@ public class SpriteSwitcher : MonoBehaviour {
 			ChangeSprite(currentSpriteIndex);
 		}
 	}
-
-	// Update is called once per frame
-	void Update()
-	{
-
-	}
-
+	
 	public void ChangeSprite(int desiredSpriteIndex)
 	{
 		//if the index makes sense and is valid

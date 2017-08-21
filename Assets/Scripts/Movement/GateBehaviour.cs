@@ -3,12 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/* 
+ * GATE BEHAVIOUR
+ * 
+ * Defines the properties of the map tile boundaries, and whether they lead to a new tile or not.
+ * Also used to assign the player position upon entering a new scene (for now, to be moved inside the SceneSwitchManager)
+ * 
+ */
+
 [RequireComponent(typeof(Collider2D))]
 public class GateBehaviour : MonoBehaviour {
 
 	public bool gateIsOpen = true;
 	public int destinationSceneIndex;
 
+	//player relative position compared to terrain edge
 	private float playerRelativePosition;
 	private Bounds gateBounds;
 
@@ -94,7 +103,7 @@ public class GateBehaviour : MonoBehaviour {
 		
 		if (collider.gameObject == Player.Instance.gameObject) {
 
-
+			//OPTI: may want to use switch here
 			if (edgeType == Edge.Left || edgeType == Edge.Right)
 			{	
 				playerRelativePosition = Mathf.InverseLerp(gateBounds.min.y, gateBounds.max.y, collider.transform.position.y);

@@ -2,6 +2,15 @@
 using System.Collections;
 using UnityEngine.UI;
 
+/* 
+ * TOOL TIP BEHAVIOUR
+ * 
+ * Displays a tool tip with information on the item being hovered by the mouse
+ * 
+ * CURRENTLY BUGGED: does not update its transform to follow the mouse
+ * 
+ */
+
 public class ToolTipBehaviour : MonoBehaviour {
 
     public Color itemTitleColor;

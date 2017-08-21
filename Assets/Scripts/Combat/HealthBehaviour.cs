@@ -37,6 +37,7 @@ public class HealthBehaviour : MonoBehaviour {
 
     void Death ()
     {
+		//TODO: real death event + animation
         Debug.Log(this.name + " died (temp death script).");
         if (gameObject.tag != "Player")
         { 

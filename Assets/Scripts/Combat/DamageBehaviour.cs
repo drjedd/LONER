@@ -3,7 +3,7 @@ using System.Collections;
 
 public class DamageBehaviour : MonoBehaviour {
 
-
+	//the health component of the recipient of the damage
     private HealthBehaviour collisionTarget;
 
     public float damage;
