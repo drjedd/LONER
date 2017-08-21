@@ -29,4 +29,7 @@ public static class Const {
 
 	public const float THROW_UI_FADEOUT_TIME = 1f;
 
+	//necessary to apply sorting order depending on object's Y position
+	public const float SORTING_ORDER_MULTIPLIER = 1000f;
+
 }

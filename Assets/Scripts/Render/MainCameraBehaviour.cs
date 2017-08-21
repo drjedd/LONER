@@ -12,6 +12,11 @@ using System.Collections;
  *	- does camera shake
  *	- smoothes any movement
  * 
+ * BUGS: 
+ * 
+ *  -	when zoomed out too much, the camera stutters like crazy because
+ *		it has no choice but to display void and it doesn't like that :P
+ * 
  * TODO: move some logic out of update frame to be called only upon certain events (e.g. resolution change)
  * 
  */

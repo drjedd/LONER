@@ -52,9 +52,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: WorldObjects
+    uniqueID: 3339000555
+    locked: 0
   - name: Foreground
     uniqueID: 3615749673
-    locked: 0
-  - name: Player
-    uniqueID: 2324376477
     locked: 0

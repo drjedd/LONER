@@ -7,7 +7,7 @@ using UnityEngine.UI;
  * 
  * Displays a tool tip with information on the item being hovered by the mouse
  * 
- * CURRENTLY BUGGED: does not update its transform to follow the mouse
+ * TODO: GameObject.Find() is so bad. Unity Singleton maybe? Is there ever going to be more than one tooltip on the screen at a time?
  * 
  */
 
@@ -24,8 +24,7 @@ public class ToolTipBehaviour : MonoBehaviour {
     void Start ()
     {
         //find ACTIVE ToolTip and deactivate it straight away: Find() will not look for the gameObject if it is already deactivated
-
-        //toolTip = GameObject.Find("Inventory ToolTip");
+        toolTip = GameObject.Find("Inventory ToolTip");
         toolTip.SetActive(false);
     }
 

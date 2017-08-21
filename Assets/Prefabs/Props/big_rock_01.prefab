@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 61720867248836634}
   - component: {fileID: 61789346364723026}
   - component: {fileID: 61896223200141964}
+  - component: {fileID: 114531324234337094}
   m_Layer: 0
   m_Name: big_rock_01
   m_TagString: Untagged
@@ -55,10 +56,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.10043335, y: -0.15605545}
+  m_Offset: {x: -0.10043335, y: 0.008438349}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.2}
     oldSize: {x: 1.33, y: 0.62}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -66,7 +67,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6729617, y: 0.2537778}
+  m_Size: {x: 0.6729617, y: 0.24140882}
   m_EdgeRadius: 0
 --- !u!61 &61789346364723026
 BoxCollider2D:
@@ -80,10 +81,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.08114624, y: -0.18358612}
+  m_Offset: {x: -0.08114624, y: 0.005}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.2}
     oldSize: {x: 1.33, y: 0.62}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -105,10 +106,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.117889404, y: -0.061836243}
+  m_Offset: {x: 0.117889404, y: 0.13}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.2}
     oldSize: {x: 1.33, y: 0.62}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -118,6 +119,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.75410163, y: 0.17940006}
   m_EdgeRadius: 0
+--- !u!114 &114531324234337094
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1811287782065212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80f6dcd9e5d7bbc4bb0dcb34128afdf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useAnArray: 0
+  spritesArray: []
 --- !u!212 &212679014559958872
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -147,9 +161,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingLayerID: -955966741
+  m_SortingLayer: 1
+  m_SortingOrder: -3999
   m_Sprite: {fileID: 21300000, guid: 4d93ace77b53f944d973eaeaace2327d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

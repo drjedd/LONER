@@ -71,9 +71,9 @@ public class ThrowBehaviour : MonoBehaviour
 			}
 		}
 
-		////find the last keyframe of the shake curve
-		//Keyframe lastKeyframeShake = ProjectileData.cameraShakeCurve[ProjectileData.cameraShakeCurve.length - 1];
-		//cameraShakeCurveEndTime = lastKeyframeShake.time;
+		//find the last keyframe of the shake curve
+		Keyframe lastKeyframeShake = ProjectileData.cameraShakeCurve[ProjectileData.cameraShakeCurve.length - 1];
+		cameraShakeCurveEndTime = lastKeyframeShake.time;
 
 		//find the last keyframe of the throw strength curve
 		Keyframe lastKeyframeThrow = ProjectileData.throwStrengthCurve[ProjectileData.throwStrengthCurve.length - 1];
