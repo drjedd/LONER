@@ -2,6 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * SPRITE LAYER CONTROLLER
+ * 
+ * Adjust sprite z-index (SpriteRenderer.sortingOrder) based on sprite position
+ * Also accounts for more complex objects made of several sprites (sprite arrays)
+ * 
+ */
+
 public class SpriteLayerController : MonoBehaviour
 {
 	public bool useAnArray;
