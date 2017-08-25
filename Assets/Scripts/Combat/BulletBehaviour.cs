@@ -23,7 +23,7 @@ public class BulletBehaviour : MonoBehaviour {
 	
     void OnCollisionEnter2D(Collision2D collision)
     {
-		Debug.Log("Bullet collided with: " + collision.collider.gameObject.name);
+		//Debug.Log("Bullet collided with: " + collision.collider.gameObject.name);
 		//do not collide with the person who fired
 		if ( collision.collider.gameObject != owner ) { 
 

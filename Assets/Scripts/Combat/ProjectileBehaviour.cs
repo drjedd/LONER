@@ -37,7 +37,7 @@ public class ProjectileBehaviour : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D collision)
 	{
-		Debug.Log("Projectile collided with: " + collision.collider.gameObject.name);
+		//Debug.Log("Projectile collided with: " + collision.collider.gameObject.name);
 		
 		Destroy(gameObject, 1f); //DEBUG
 		slowingDown = true;

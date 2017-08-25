@@ -98,49 +98,50 @@ public class ThrowBehaviour : MonoBehaviour
 		inUse = GetComponent<UIItem>().inUse;
 
 		//shoot only if aiming and not reloading
-		if (inUse && Input.GetKey(KeyCode.Mouse1) && canShoot && inventoryManager.CheckIfItemIsInInventory(1))
+		if (inUse && Input.GetKey(KeyCode.Mouse1) && canShoot)
 		{
-			if (Input.GetKeyDown(KeyCode.Mouse0))
-			{
-				throwHoldDuration = 0f;
+			if (Input.GetKeyDown (KeyCode.Mouse0)) {
+				if (inventoryManager.FindFirstItemInInventory (1) == -1)
+				{
+					//FIXME: this doesn't work because the script is deleted as the last knife is consumed (script being attached to iventory item)
+					Debug.Log("OUT OF AMMO");
+				}
+				else
+				{
+					throwHoldDuration = 0f;
 
-				//throw in a bit of camera shake, for good measure
-				mainCamera.cameraShakeCurve = ProjectileData.cameraShakeCurve;
-				mainCamera.cameraShakeCurveEndTime = 1000f;
+					//throw in a bit of camera shake, for good measure
+					mainCamera.cameraShakeCurve = ProjectileData.cameraShakeCurve;
+					mainCamera.cameraShakeCurveEndTime = 1000f;
 
-				mainCamera.cameraShakeCurrentTime = 0;
+					mainCamera.cameraShakeCurrentTime = 0;
 
-				//start throw bar sound
-				//weaponAudioSource.Play();
-			}
-			else if (Input.GetKey(KeyCode.Mouse0))
-			{
+					//start throw bar sound
+					//weaponAudioSource.Play();
+				}
+			} else if (Input.GetKey (KeyCode.Mouse0)) {
 				throwHoldDuration += Time.deltaTime;
 
 				//show UI after a little bit
-				if (throwHoldDuration > 0.2f)
-				{
-					throwBarUI.transform.parent.gameObject.GetComponent<Image>().color = throwBarUIBGColor;
-					throwBarUI.GetComponent<Image>().color = throwBarUIBarColor;
+				if (throwHoldDuration > 0.2f) {
+					throwBarUI.transform.parent.gameObject.GetComponent<Image> ().color = throwBarUIBGColor;
+					throwBarUI.GetComponent<Image> ().color = throwBarUIBarColor;
 
-					Vector3 tempVector3 = new Vector3(Mathf.InverseLerp(0f, throwStrengthCurveEndTime, throwHoldDuration), 1f, 1f);
-					throwBarUI.GetComponent<RectTransform>().localScale = tempVector3;
+					Vector3 tempVector3 = new Vector3 (Mathf.InverseLerp (0f, throwStrengthCurveEndTime, throwHoldDuration), 1f, 1f);
+					throwBarUI.GetComponent<RectTransform> ().localScale = tempVector3;
 				}
 
 				throwEndTime = Time.time;
 
-			}
-			else if ( Input.GetKeyUp( KeyCode.Mouse0 ) ) {
+			} else if (Input.GetKeyUp (KeyCode.Mouse0)) {
 				//upon mouse release, send the throw() coroutine the correct strength value depending on hold duration and data curve
-				StartCoroutine(Throw(ProjectileData.throwStrengthCurve.Evaluate(throwHoldDuration)));
+				StartCoroutine (Throw (ProjectileData.throwStrengthCurve.Evaluate (throwHoldDuration)));
 				throwEndTime = Time.time;
 
 				//gross way to end camera shake
 				mainCamera.cameraShakeCurrentTime = 2000f;
 				//weaponAudioSource.Stop();
 			}
-
-			
 		}
 
 		//hiding the UI after a certain time ONLY IF WE ARE NOT HOLDING MOUSE BUTTON DOWN
@@ -207,7 +208,7 @@ public class ThrowBehaviour : MonoBehaviour
 			//bulletBehaviour.owner = Player.Instance.gameObject;
 
 			// (poor) ammo management
-			inventoryManager.RemoveItem(1);
+			inventoryManager.RemoveFirstItemInInventory(1);
 
 			i++;
 

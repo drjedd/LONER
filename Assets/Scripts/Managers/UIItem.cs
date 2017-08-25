@@ -63,8 +63,8 @@ public class UIItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHa
 		if (eventData.button == PointerEventData.InputButton.Left && MainCameraBehaviour.aimingMode == false)
 		{
 			//in case of unsuccessful drop
-			this.transform.SetParent(inventory.slots[slotID].transform);
-			this.transform.position = inventory.slots[slotID].transform.position;
+			this.transform.SetParent(inventory.inventorySlots[slotID].transform);
+			this.transform.position = inventory.inventorySlots[slotID].transform.position;
 
 			GetComponent<CanvasGroup>().blocksRaycasts = true;
 		}

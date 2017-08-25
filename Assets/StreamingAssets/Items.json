@@ -2,8 +2,9 @@
     {
         "id": 0,
         "slug": "revolver",
-        "type": 0,
+        "type": 1,
         "stackable": false,
+        "canBeEquipped": true    ,
         "title": "Colt Revolver",
         "description": "Does the job. Better find something better quick though!",
         "damage": 35.0
@@ -11,8 +12,9 @@
     {
         "id": 1,
         "slug": "throwing_knife",
-        "type": 1,
+        "type": 2,
         "stackable": true,
+        "canBeEquipped": true,
         "title": "Throwing Knife",
         "description": "Careful with these, they're damn sharp!",
         "damage": 50.0
@@ -20,8 +22,9 @@
     {
         "id": 2,
         "slug": "shotgun",
-        "type": 0,
+        "type": 1,
         "stackable": false,
+        "canBeEquipped": true,
         "title": "Blunderbuss",
         "description": "Grandma's personal favorite! Too bad she's dead now.",
         "damage": 12.5
@@ -29,8 +32,9 @@
     {
         "id": 3,
         "slug": "rifle",
-        "type": 0,
+        "type": 1,
         "stackable": false,
+        "canBeEquipped": true,
         "title": "Winchester",
         "description": "Deadly as can be, but also very rare so cherish it!",
         "damage": 150.0
@@ -38,8 +42,9 @@
     {
         "id": 4,
         "slug": "ammo",
-        "type": 2,
+        "type": 3,
         "stackable": true,
+        "canBeEquipped": false,
         "title": "Ammunition",
         "description": "Too rare to be wasted! Be careful!",
         "damage": 0.0

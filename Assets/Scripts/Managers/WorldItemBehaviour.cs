@@ -48,17 +48,21 @@ public class WorldItemBehaviour : MonoBehaviour {
         }
     }
 	
-    void OnTriggerEnter2D (Collider2D collider) {
+    void OnTriggerEnter2D (Collider2D collider)
+	{
 
-        if (collider.gameObject.tag == "Player")
-        {
-			for (int i = 0; i < itemQuantity; i++)
-			{
-				inventoryManager.AddItem(itemID); //pick up item, shitty prototype code
+		if (collider.gameObject.tag == "Player") {
+			bool pickedUpAlright = false; //the shittiest variable name so far SeemsGood
+
+			for (int i = 0; i < itemQuantity; i++) {
+				pickedUpAlright = inventoryManager.AddItem (itemID); //pick up item, shitty prototype code
 			}
-            DestroyObject(gameObject);
-            Debug.Log(gameObject.name + " was picked up by " + collider.gameObject.name);
-        }
 
+			//FIXME: object gets destroyed even if inventory is full
+			if (pickedUpAlright) {
+				DestroyObject (gameObject);
+				Debug.Log (gameObject.name + " was picked up by " + collider.gameObject.name);
+			}
+		}
     }
 }

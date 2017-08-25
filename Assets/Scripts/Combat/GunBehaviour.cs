@@ -83,9 +83,12 @@ public class GunBehaviour : MonoBehaviour {
 		inUse = GetComponent<UIItem>().inUse;
 
 		//shoot only if aiming and not reloading
-		if (inUse && Input.GetKey(KeyCode.Mouse1) && Input.GetKeyDown(KeyCode.Mouse0) && canShoot && inventoryManager.CheckIfItemIsInInventory(4))
+		if (inUse && Input.GetKey(KeyCode.Mouse1) && Input.GetKeyDown(KeyCode.Mouse0) && canShoot)
         {
-            StartCoroutine(Shoot());
+			if (inventoryManager.FindFirstItemInInventory(4) != -1)
+           		StartCoroutine(Shoot());
+			else
+				Debug.Log ("OUT OF AMMO");
         }
     }
 
@@ -120,7 +123,7 @@ public class GunBehaviour : MonoBehaviour {
 			//apply random scattering factor
 			Vector3 scattering = new Vector3(0, 0, Random.Range(-GunData.scatteringAngle, GunData.scatteringAngle));
 
-			Debug.Log("Scattering: " + scattering.z);
+			//Debug.Log("Scattering: " + scattering.z);
 			newShot.gameObject.transform.Rotate(scattering);
 
 			//newShot.gameObject.transform.LookAt(mainCamera.GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition));
@@ -140,7 +143,7 @@ public class GunBehaviour : MonoBehaviour {
 
 			// (poor) ammo management
 			magazineCurrentSize--;
-			inventoryManager.RemoveItem(4);
+			inventoryManager.RemoveFirstItemInInventory(4);
 
 			i++;
 
