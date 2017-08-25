@@ -12,6 +12,7 @@ TagManager:
   - Manager
   - Terrain
   - ThrowPercentage
+  - PlayerAnimationManager
   layers:
   - Default
   - TransparentFX

@@ -7,6 +7,9 @@ public class InventoryManager : MonoBehaviour {
 
     ItemDatabase database;
 
+	//super gross reference with NO CHECKS WHATSOEVER
+	public PlayerAnimationManager playerAnimationManager;
+
     //UI objects being managed
     public GameObject inventoryPanel;
     public GameObject slotPanel;
@@ -40,6 +43,7 @@ public class InventoryManager : MonoBehaviour {
             inventoryItems.Add(new ItemData());
 
         }
+
     }
 
     void Update()
@@ -97,14 +101,21 @@ public class InventoryManager : MonoBehaviour {
 						itemObject.GetComponent<Image> ().sprite = itemToAdd.Sprite;
 						itemObject.name = itemToAdd.Title;
 
-						if (itemToAdd.Type == ItemData.ItemType.FireArm)
+						//UGLY-ASS TEMPORARY CODE FIXME
+						List<string> availableGuns = new List<string>{ "revolver", "shotgun", "rifle"};
+
+						List<string> availableProjectiles = new List<string>{ "throwing_knife" };
+
+						//if gun
+						if (availableGuns.Contains(itemToAdd.Slug))
 						{
 							GunBehaviour gunLogic = itemObject.AddComponent<GunBehaviour> ();
 							gunLogic.GunData = Resources.Load ("scriptable_objects/guns/" + itemToAdd.Slug) as GunData;
 
 							gunLogic.InitialChecks ();
 						}
-						else if (itemToAdd.Type == ItemData.ItemType.Projectile)
+						//if knifes
+						else if (availableProjectiles.Contains(itemToAdd.Slug))
 						{
 							ThrowBehaviour throwLogic = itemObject.AddComponent<ThrowBehaviour> ();
 							throwLogic.ProjectileData = Resources.Load ("scriptable_objects/projectiles/" + itemToAdd.Slug) as ProjectileData;
@@ -112,35 +123,21 @@ public class InventoryManager : MonoBehaviour {
 							throwLogic.InitialChecks ();
 						}
 
-						#region AutoEquipTest
-						if (itemToAdd.CanBeEquipped)
+						//if clothing
+						if (itemToAdd.Type == ItemData.ItemType.clothing)
 						{
-							Debug.Log("CAN BE EQUIPPED");
-
-							//DEBUG TEST: if firearm, de-equip all other firearms (including this new one since we already added it)
-							List<int> similarTypeItemIndexes = FindAllItemsOfTypeInInventory (itemToAdd.Type);
-
-							//if there are similar type items
-							if (similarTypeItemIndexes != null)
-							{
-								//disable them
-								foreach (int index in similarTypeItemIndexes)
-								{
-									Debug.Log (index);
-									UIItem existingUIItem = inventorySlots [index].GetComponentInChildren<UIItem> ();
-									EquipItem(existingUIItem, false);
-								}
-							}
-							else
-							{
-								Debug.Log("No items of similar type found");
-							}
-
-							//and equip this one
-							EquipItem(itemUIObject, true);
+							ClothingBehaviour clothingLogic = itemObject.AddComponent<ClothingBehaviour> ();
+							clothingLogic.associatedItem = itemToAdd;
+							clothingLogic.itemInstance = itemObject.GetComponent<UIItem> ();
+							clothingLogic.spriteSwitcher = playerAnimationManager.bodySprites[(int)itemToAdd.Clothing];
 						}
 
-						#endregion
+						if (itemToAdd.CanBeEquipped)
+						{
+
+							//equip this object (and de-equip similar type items if not clothing)
+							EquipItem(itemUIObject, true);
+						}
 
 						//don't add the item to every free slot: get out of the loop!
 						return true;
@@ -239,24 +236,63 @@ public class InventoryManager : MonoBehaviour {
 			return results;
 	}
 
-	public void ToggleItemEquip(UIItem itemToToggleEquip)
-	{
-		itemToToggleEquip.inUse = !itemToToggleEquip.inUse;
-
-		//gross prototype code to change equipped item background color
-		if (itemToToggleEquip.transform.parent.gameObject.GetComponent<Image>().color != Color.yellow)
-			itemToToggleEquip.transform.parent.gameObject.GetComponent<Image>().color = Color.yellow;
-		else
-			itemToToggleEquip.transform.parent.gameObject.GetComponent<Image>().color = Color.white;
-	}
+//	public void ToggleItemEquip(UIItem itemToToggleEquip)
+//	{
+//		itemToToggleEquip.inUse = !itemToToggleEquip.inUse;
+//
+//		//gross prototype code to change equipped item background color
+//		if (itemToToggleEquip.transform.parent.gameObject.GetComponent<Image>().color != Color.yellow)
+//			itemToToggleEquip.transform.parent.gameObject.GetComponent<Image>().color = Color.yellow;
+//		else
+//			itemToToggleEquip.transform.parent.gameObject.GetComponent<Image>().color = Color.white;
+//	}
 
 	public void EquipItem(UIItem itemToEquip, bool equip)
 	{
-		itemToEquip.inUse = equip;
 		//gross prototype code to change equipped item background color
 		if (equip)
-			itemToEquip.transform.parent.gameObject.GetComponent<Image>().color = Color.yellow;
+		{
+			//prior to equipping a new object of x type, de-equip all similar objects if not clothing
+			if (itemToEquip.item.Type != ItemData.ItemType.clothing)
+			{
+				EquipAllItemsOfType (itemToEquip, false);
+			}
+
+			//color feedback
+			itemToEquip.transform.parent.gameObject.GetComponent<Image> ().color = Color.yellow;
+		}
 		else
-			itemToEquip.transform.parent.gameObject.GetComponent<Image>().color = Color.white;
+		{
+			//color feedback
+			itemToEquip.transform.parent.gameObject.GetComponent<Image> ().color = Color.white;
+		}
+
+		itemToEquip.equipped = equip;
+
+		//debug code
+		if (itemToEquip.item.Type == ItemData.ItemType.clothing)
+		{
+			itemToEquip.gameObject.GetComponent<ClothingBehaviour> ().OnToggleEquip ();
+		}
+	}
+
+	public bool EquipAllItemsOfType(UIItem itemToEquip, bool equip)
+	{
+		List<int> similarTypeItemIndexes = FindAllItemsOfTypeInInventory (itemToEquip.item.Type);
+
+		//if there are similar type items
+		if (similarTypeItemIndexes != null)
+		{
+			//disable them
+			foreach (int index in similarTypeItemIndexes) {
+				UIItem existingUIItem = inventorySlots [index].GetComponentInChildren<UIItem> ();
+				EquipItem (existingUIItem, equip);
+			}
+
+			return true;
+		} else {
+			Debug.Log ("No items of similar type found");
+			return false;
+		}
 	}
 }

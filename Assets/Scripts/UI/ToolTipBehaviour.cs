@@ -30,12 +30,10 @@ public class ToolTipBehaviour : MonoBehaviour {
 
     void Update ()
     {
-		//shutdown for debug
-
-        //if (toolTip.activeSelf)
-        //{
-        //    toolTip.transform.position = Input.mousePosition;
-        //}
+        if (toolTip.activeSelf)
+        {
+            toolTip.transform.position = Input.mousePosition;
+        }
     }
     
     public void Activate (ItemData item)

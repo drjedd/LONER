@@ -7,7 +7,7 @@ public class GunBehaviour : MonoBehaviour {
 	//scriptable object instance, hence the capitalisation
 	public GunData GunData;
 
-	public bool inUse = false;
+	public bool equipped = false;
 	private bool canShoot = true;
 	private bool reloading = true;
 
@@ -80,10 +80,10 @@ public class GunBehaviour : MonoBehaviour {
 	void Update () {
 
 		//enable gun only if item is equipped
-		inUse = GetComponent<UIItem>().inUse;
+		equipped = GetComponent<UIItem>().equipped;
 
 		//shoot only if aiming and not reloading
-		if (inUse && Input.GetKey(KeyCode.Mouse1) && Input.GetKeyDown(KeyCode.Mouse0) && canShoot)
+		if (equipped && Input.GetKey(KeyCode.Mouse1) && Input.GetKeyDown(KeyCode.Mouse0) && canShoot)
         {
 			if (inventoryManager.FindFirstItemInInventory(4) != -1)
            		StartCoroutine(Shoot());

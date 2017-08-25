@@ -10,24 +10,14 @@ using System.Collections;
  * 
  */
 
-public class PlayerAnimation : MonoBehaviour
+public class PlayerAnimationManager : MonoBehaviour
 {
 
 	public Animator headAnim;
 	public Animator bodyAnim;
 
 
-	public SpriteSwitcher hat;
-	public SpriteSwitcher hair;
-	public SpriteSwitcher mustache;
-	public SpriteSwitcher beard;
-	public SpriteSwitcher scarf;
-	public SpriteSwitcher head;
-
-	public SpriteSwitcher jacket;
-	public SpriteSwitcher shirt;
-	public SpriteSwitcher pants;
-	public SpriteSwitcher body;
+	public SpriteSwitcher[] bodySprites;
 
 	void Start ()
     {
@@ -41,52 +31,52 @@ public class PlayerAnimation : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Alpha1))
 		{
 
-			head.NextSprite();
+			bodySprites[0].NextSprite();
 		}
 		if (Input.GetKeyDown(KeyCode.Alpha2))
 		{
 
-			beard.NextSprite();
+			bodySprites[1].NextSprite();
 		}
 		if (Input.GetKeyDown(KeyCode.Alpha3))
 		{
 
-			scarf.NextSprite();
+			bodySprites[2].NextSprite();
 		}
 		if (Input.GetKeyDown(KeyCode.Alpha4))
 		{
 
-			mustache.NextSprite();
+			bodySprites[3].NextSprite();
 		}
 		if (Input.GetKeyDown(KeyCode.Alpha5))
 		{
 
-			hair.NextSprite();
+			bodySprites[4].NextSprite();
 		}
 		if (Input.GetKeyDown(KeyCode.Alpha6))
 		{
 
-			hat.NextSprite();
+			bodySprites[5].NextSprite();
 		}
 		if (Input.GetKeyDown(KeyCode.Alpha7))
 		{
 
-			pants.NextSprite();
+			bodySprites[6].NextSprite();
 		}
 		if (Input.GetKeyDown(KeyCode.Alpha8))
 		{
 
-			shirt.NextSprite();
+			bodySprites[7].NextSprite();
 		}
 		if (Input.GetKeyDown(KeyCode.Alpha9))
 		{
 
-			jacket.NextSprite();
+			bodySprites[8].NextSprite();
 		}
 		if (Input.GetKeyDown(KeyCode.Alpha0))
 		{
 
-			body.NextSprite();
+			bodySprites[9].NextSprite();
 		}
 		#endregion
 

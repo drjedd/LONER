@@ -8,7 +8,7 @@ public class ThrowBehaviour : MonoBehaviour
 	//scriptable object instance, hence the capitalisation
 	public ProjectileData ProjectileData;
 
-	public bool inUse = false;
+	public bool equipped = false;
 	private bool canShoot = true;
 
 	private InventoryManager inventoryManager;
@@ -95,10 +95,10 @@ public class ThrowBehaviour : MonoBehaviour
 		/* HOLD TO THROW STRONGER MECHANICS */
 
 		//enable gun only if item is equipped
-		inUse = GetComponent<UIItem>().inUse;
+		equipped = GetComponent<UIItem>().equipped;
 
 		//shoot only if aiming and not reloading
-		if (inUse && Input.GetKey(KeyCode.Mouse1) && canShoot)
+		if (equipped && Input.GetKey(KeyCode.Mouse1) && canShoot)
 		{
 			if (Input.GetKeyDown (KeyCode.Mouse0)) {
 				if (inventoryManager.FindFirstItemInInventory (1) == -1)

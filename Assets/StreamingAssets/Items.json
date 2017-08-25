@@ -7,17 +7,21 @@
         "canBeEquipped": true    ,
         "title": "Colt Revolver",
         "description": "Does the job. Better find something better quick though!",
-        "damage": 35.0
+        "damage": 35.0,
+        "clothingType": -1,
+        "clothingSpriteIndex": -1
     },
     {
         "id": 1,
         "slug": "throwing_knife",
-        "type": 2,
+        "type": 1,
         "stackable": true,
         "canBeEquipped": true,
         "title": "Throwing Knife",
         "description": "Careful with these, they're damn sharp!",
-        "damage": 50.0
+        "damage": 50.0,
+        "clothingType": -1,
+        "clothingSpriteIndex": -1
     },
     {
         "id": 2,
@@ -27,7 +31,9 @@
         "canBeEquipped": true,
         "title": "Blunderbuss",
         "description": "Grandma's personal favorite! Too bad she's dead now.",
-        "damage": 12.5
+        "damage": 12.5,
+        "clothingType": -1,
+        "clothingSpriteIndex": -1
     },
     {
         "id": 3,
@@ -37,7 +43,9 @@
         "canBeEquipped": true,
         "title": "Winchester",
         "description": "Deadly as can be, but also very rare so cherish it!",
-        "damage": 150.0
+        "damage": 150.0,
+        "clothingType": -1,
+        "clothingSpriteIndex": -1
     },
     {
         "id": 4,
@@ -47,6 +55,68 @@
         "canBeEquipped": false,
         "title": "Ammunition",
         "description": "Too rare to be wasted! Be careful!",
-        "damage": 0.0
+        "damage": -1.0,
+        "clothingType": -1,
+        "clothingSpriteIndex": -1
+    },
+    {
+        "id": 5,
+        "slug": "hat_white",
+        "type": 4,
+        "stackable": false,
+        "canBeEquipped": true,
+        "title": "White hat",
+        "description": "leather man!",
+        "damage": -1.0,
+        "clothingType": 0,
+        "clothingSpriteIndex": 1
+    },
+    {
+        "id": 6,
+        "slug": "hat_black",
+        "type": 4,
+        "stackable": false,
+        "canBeEquipped": true,
+        "title": "Black hat",
+        "description": "leather man!",
+        "damage": -1.0,
+        "clothingType": 0,
+        "clothingSpriteIndex": 3
+    },
+    {
+        "id": 7,
+        "slug": "shirt_white",
+        "type": 4,
+        "stackable": false,
+        "canBeEquipped": true,
+        "title": "White shirt",
+        "description": "leather man!",
+        "damage": -1.0,
+        "clothingType": 7,
+        "clothingSpriteIndex": 0
+    },
+    {
+        "id": 8,
+        "slug": "shirt_red",
+        "type": 4,
+        "stackable": false,
+        "canBeEquipped": true,
+        "title": "Red shirt",
+        "description": "leather man!",
+        "damage": -1.0,
+        "clothingType": 7,
+        "clothingSpriteIndex": 1
+    },
+    {
+        "id": 9,
+        "slug": "hat_black_with_band",
+        "type": 4,
+        "stackable": false,
+        "canBeEquipped": true,
+        "title": "Black hat with band",
+        "description": "leather man!",
+        "damage": -1.0,
+        "clothingType": 0,
+        "clothingSpriteIndex": 0
     }
 ]

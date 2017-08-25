@@ -10,7 +10,7 @@ public class UIItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHa
 
     public ItemData item;
     public int amount;
-	public bool inUse;
+	public bool equipped;
 
     private ToolTipBehaviour toolTip;
     private InventoryManager inventory;
@@ -86,8 +86,15 @@ public class UIItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHa
 		//if double click
 		if ( ( Time.time - timeAtLastClick ) <= Const.MAX_TIME_BETWEEN_DOUBLE_CLICK )
 		{
-			inventory.ToggleItemEquip(this);
-
+			if (this.item.CanBeEquipped)
+			{
+				//if equipped, de-equip and vice-versa
+				inventory.EquipItem (this, !equipped);
+			}
+			else
+			{
+				Debug.Log ("Can't equip this item: " + this.item.Slug);
+			}
 			//reset last click time to avoid extra double click events
 			timeAtLastClick = -1f;
 		}
