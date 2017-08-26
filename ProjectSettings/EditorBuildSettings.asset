@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/charadesigner.unity
+    path: Assets/Scenes/main.unity
     guid: 1f93b970094039e49a3dc0a754d75eec
   - enabled: 1
     path: Assets/Scenes/level0.unity

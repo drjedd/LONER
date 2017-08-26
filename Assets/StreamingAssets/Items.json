@@ -66,7 +66,7 @@
         "stackable": false,
         "canBeEquipped": true,
         "title": "White hat",
-        "description": "leather man!",
+        "description": "N/A",
         "damage": -1.0,
         "clothingType": 0,
         "clothingSpriteIndex": 1
@@ -78,7 +78,7 @@
         "stackable": false,
         "canBeEquipped": true,
         "title": "Black hat",
-        "description": "leather man!",
+        "description": "N/A",
         "damage": -1.0,
         "clothingType": 0,
         "clothingSpriteIndex": 3
@@ -90,7 +90,7 @@
         "stackable": false,
         "canBeEquipped": true,
         "title": "White shirt",
-        "description": "leather man!",
+        "description": "N/A",
         "damage": -1.0,
         "clothingType": 7,
         "clothingSpriteIndex": 0
@@ -102,7 +102,7 @@
         "stackable": false,
         "canBeEquipped": true,
         "title": "Red shirt",
-        "description": "leather man!",
+        "description": "N/A",
         "damage": -1.0,
         "clothingType": 7,
         "clothingSpriteIndex": 1
@@ -114,9 +114,56 @@
         "stackable": false,
         "canBeEquipped": true,
         "title": "Black hat with band",
-        "description": "leather man!",
+        "description": "N/A",
         "damage": -1.0,
         "clothingType": 0,
+        "clothingSpriteIndex": 0
+    },
+    {
+        "id": 10,
+        "slug": "pants_blue",
+        "type": 4,
+        "stackable": false,
+        "canBeEquipped": true,
+        "title": "Blue pants",
+        "description": "N/A",
+        "damage": -1.0,
+        "clothingType": 8,
+        "clothingSpriteIndex": 0
+    },
+    {
+        "id": 11,
+        "slug": "jacket_brown",
+        "type": 4,
+        "stackable": false,
+        "canBeEquipped": true,
+        "title": "Brown jacket",
+        "description": "N/A",
+        "damage": -1.0,
+        "clothingType": 6,
+        "clothingSpriteIndex": 0
+    },
+    {
+        "id": 12,
+        "slug": "jacket_white",
+        "type": 4,
+        "stackable": false,
+        "canBeEquipped": true,
+        "title": "White jacket",
+        "description": "N/A",
+        "damage": -1.0,
+        "clothingType": 6,
+        "clothingSpriteIndex": 1
+    },{
+        "id": 13,
+        "slug": "scarf_red",
+        "type": 4,
+        "stackable": false,
+        "canBeEquipped": true,
+        "title": "Red scarf",
+        "description": "N/A",
+        "damage": -1.0,
+        "clothingType": 5,
         "clothingSpriteIndex": 0
     }
 ]
